@@ -1,0 +1,8 @@
+*.json
+!config/settings.json
+
+__pycache__/
+*.pyc
+
+.env
+fim/

@@ -1,0 +1,20 @@
+{
+    "monitor_path": "/home/kali/temp",
+    "hash_algorithm": "sha256",
+    "exclude": [
+        ".git",
+        "venv",
+        "__pycache__",
+        "config/",
+        "data/"
+    ],
+    "baseline_file": "data/baseline.json",
+    "report_file": "data/report.json",
+    "scan_interval": 10,
+    "beep_on_change": true,
+    "beep_sound_file": "audio/alert.wav",
+    "email_alert": false,
+    "auto_training": false,
+    "ai_risk_scoring": true,
+    "smart_alerts": true
+}
