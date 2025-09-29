@@ -10,11 +10,17 @@
     ],
     "baseline_file": "data/baseline.json",
     "report_file": "data/report.json",
+    "ai_report_file": "data/ai_risk_report.json",
     "scan_interval": 10,
-    "beep_on_change": true,
+    "beep_on_change": false,
     "beep_sound_file": "audio/alert.wav",
     "email_alert": false,
     "auto_training": false,
     "ai_risk_scoring": true,
-    "smart_alerts": true
+    "smart_alerts": true,
+    "virustotal_enabled": true,
+    "virustotal_api_key": "682f7e00f18d33d726a5a6c7c90b3764eca0e9d34e885ff5536ac582faa5c559",
+    "virustotal_scan_new_files": true,
+    "virustotal_scan_modified_files": false,
+    "virustotal_auto_scan": false
 }

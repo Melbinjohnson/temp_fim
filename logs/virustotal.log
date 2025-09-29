@@ -1,0 +1,477 @@
+2025-09-29 08:02:32,059 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:19:16,283 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:19:17,027 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:19:17,660 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:19:27,664 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:19:28,244 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:19:28,756 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:19:41,792 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:19:42,376 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:19:43,464 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:19:53,468 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:19:54,049 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:19:54,561 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:20:04,566 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:20:05,211 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:20:05,723 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:20:15,727 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:20:16,268 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:20:16,782 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:20:26,786 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:20:27,534 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:20:28,047 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:20:38,051 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:20:38,594 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:20:39,209 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:20:49,212 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:20:49,858 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:20:50,472 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:21:00,476 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:21:01,225 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:21:02,556 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:21:12,559 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:21:13,206 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:21:13,820 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:21:23,824 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:21:24,366 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:21:24,981 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:21:34,992 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:21:35,630 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:21:36,142 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:21:46,145 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:21:46,794 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:21:47,305 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:21:57,309 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:21:57,852 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:21:58,365 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:22:08,368 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:22:09,030 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:22:09,777 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:22:19,781 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:22:20,381 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:22:20,892 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:22:30,896 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:22:31,440 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:22:31,952 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:22:41,957 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:22:42,532 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:22:43,932 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:22:53,936 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:22:54,549 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:22:55,094 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:27:06,685 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:27:07,412 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:27:08,129 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:27:18,134 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:27:18,677 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:27:19,188 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:27:29,192 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:27:29,736 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:27:30,248 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:27:40,253 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:27:40,896 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:27:41,540 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:27:51,545 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:27:52,161 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:27:52,674 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:29:03,766 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:29:04,355 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:29:04,867 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:29:14,870 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:29:15,517 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:29:16,131 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:29:26,135 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:29:26,678 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:29:27,395 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:29:37,399 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:29:37,941 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:29:38,454 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:29:48,459 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:29:49,104 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:29:49,718 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:29:59,723 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:30:00,266 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:30:00,880 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:30:10,885 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:35:12,534 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:35:13,399 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:35:13,905 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:35:23,909 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:35:24,456 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:35:25,073 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:35:35,077 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:35:35,618 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:35:36,129 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:35:46,133 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:35:46,679 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:35:47,189 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:35:57,192 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:35:57,734 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:35:58,249 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:36:08,253 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:36:09,001 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:36:09,615 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:36:19,618 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:36:20,161 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:36:20,674 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:36:30,678 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:36:31,219 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:36:31,741 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:36:41,746 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:36:42,240 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:36:42,790 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:36:52,794 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:36:53,441 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:36:54,054 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:37:04,058 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:37:04,600 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:37:05,114 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:37:15,118 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:37:15,762 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:37:16,379 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:37:26,382 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:37:26,924 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:37:27,443 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:37:37,448 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:37:38,086 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:37:38,700 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:37:48,704 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:37:49,244 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:37:49,758 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:37:59,762 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:38:00,306 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:38:00,818 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:38:10,821 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:38:11,466 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d" not found
+2025-09-29 08:38:11,978 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46" not found
+2025-09-29 08:38:21,982 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:38:22,521 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:38:32,531 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:38:33,255 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:38:43,260 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:38:43,825 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:38:53,829 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:38:54,577 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:39:04,580 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:39:05,226 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:39:15,231 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:39:15,875 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:39:25,878 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:39:28,470 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:39:38,474 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:39:39,017 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:39:49,021 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:39:49,974 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:39:59,979 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:40:00,623 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:40:10,626 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:40:11,239 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:40:21,244 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:40:21,923 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:40:31,927 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:40:32,464 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:40:42,469 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:40:43,119 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:40:53,122 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:40:53,665 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:41:03,669 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:41:04,280 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:41:14,286 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:41:14,863 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:41:24,867 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:41:25,511 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:41:35,515 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:41:36,059 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:41:46,064 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:41:46,707 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:41:56,711 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:41:57,252 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:42:07,256 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:42:08,822 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:42:18,826 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:42:19,374 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:42:29,378 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:42:30,024 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:42:40,028 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:42:40,672 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:42:50,676 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:42:51,422 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:43:01,426 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:43:01,968 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:43:11,972 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:43:12,519 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:43:22,523 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:43:23,167 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:43:33,172 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:43:33,817 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:43:43,821 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:43:44,397 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:43:54,401 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:43:55,039 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:44:05,044 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:44:05,664 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:44:15,668 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:44:16,313 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:44:26,317 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:44:26,859 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:44:36,863 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:44:37,509 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:44:47,513 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:44:48,261 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:44:58,265 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:44:58,910 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:45:08,914 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:45:09,458 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:45:19,462 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:45:20,106 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:45:30,110 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:45:30,756 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:45:40,760 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:45:41,345 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:45:51,349 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:45:51,972 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:46:01,976 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:46:02,500 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:46:12,504 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:46:13,196 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:46:23,201 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:46:23,833 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:46:33,837 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:46:34,323 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:46:44,327 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:46:44,998 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:46:55,002 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:46:55,543 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:47:05,547 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:47:06,196 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:47:16,201 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:47:16,737 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:47:26,741 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:47:27,389 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:47:37,392 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:47:38,038 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:47:48,041 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:47:49,197 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:47:59,202 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:47:59,739 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:48:09,743 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:48:10,398 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:48:20,402 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:48:21,867 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:48:31,870 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:48:32,414 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:48:42,417 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:48:43,062 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:48:53,066 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:48:53,711 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 08:49:03,715 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 08:49:04,361 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:13:21,910 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:13:22,538 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:13:32,542 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:13:33,186 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:13:43,191 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:13:43,731 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:13:53,736 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:13:54,382 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:14:04,386 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:14:04,927 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:14:14,931 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:14:15,477 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:14:25,481 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:14:26,126 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:14:36,131 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:14:36,774 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:14:46,778 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:14:47,322 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:14:57,326 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:14:57,869 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:15:07,873 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:15:08,420 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 09:15:18,424 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 09:15:19,173 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 10:03:41,910 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:03:41,914 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a17e7b60>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:03:41,917 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c1bd0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:03:41,918 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c2710>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:03:51,924 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:03:51,926 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c3110>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:03:51,927 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c3610>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:03:51,929 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c3b10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:01,934 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:04:01,936 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a1714190>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:01,939 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a178f9d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:01,940 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a178fed0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:11,946 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:04:11,948 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c2fd0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:11,950 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c39d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:11,952 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c34d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:21,957 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:04:21,960 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c2990>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:21,961 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c2210>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:21,963 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c25d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:31,969 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:04:31,971 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c2c10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:31,973 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c1950>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:31,975 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c11d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:41,981 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:04:41,983 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c1090>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:41,987 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a178fed0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:41,988 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a178fb10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:51,995 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:04:51,998 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c0550>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:52,001 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c1310>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:04:52,003 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fe0a16c1bd0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:13,334 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:05:13,338 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa485d3b60>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:13,340 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484adbd0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:13,342 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ae710>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:23,347 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:05:23,349 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484af110>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:23,356 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484af610>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:23,358 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484afb10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:33,363 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:05:33,365 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484fc190>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:33,368 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa4857b9d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:33,369 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa4857bed0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:43,374 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:05:43,376 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484aefd0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:43,378 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484af9d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:43,379 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484af4d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:53,384 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:05:53,387 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484aec10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:53,388 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ae350>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:05:53,390 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ae850>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:03,395 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:06:03,397 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad450>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:03,399 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad950>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:03,401 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad1d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:03,402 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad090>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:13,408 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:06:13,411 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa4857bed0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:13,413 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa4857bb10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:13,415 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ac550>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:13,416 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad310>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:23,421 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:06:23,424 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484accd0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:23,425 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad450>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:23,427 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ae850>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:23,428 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ae350>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:33,434 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:06:33,436 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484aec10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:33,439 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484af4d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:33,441 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484af9d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:33,443 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484aefd0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:43,449 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:06:43,451 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484afd90>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:43,454 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa4857bb10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:43,456 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa4857bc50>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:43,458 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ac7d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:53,462 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:06:53,464 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484afb10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:53,466 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484af610>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:53,468 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484af110>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:06:53,469 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ae990>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:03,474 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:07:03,477 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ae210>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:03,479 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ae5d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:03,481 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad810>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:03,482 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484adbd0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:13,488 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:07:13,490 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484add10>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:13,492 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484acb90>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:13,495 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ac050>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:13,497 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad090>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:23,502 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:07:23,504 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad1d0>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:23,506 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad950>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:23,508 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484ad590>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:07:23,509 - VirusTotalIntegration - ERROR - VirusTotal API request failed: HTTPSConnectionPool(host='www.virustotal.com', port=443): Max retries exceeded with url: /api/v3/files/8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7faa484adf90>: Failed to resolve 'www.virustotal.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-09-29 10:31:59,382 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:32:00,057 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 10:32:10,065 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:32:10,705 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 10:32:20,713 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:32:21,253 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 10:32:31,262 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:32:31,904 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 10:32:41,911 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:32:42,452 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 10:32:52,460 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:32:53,099 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 10:33:03,107 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 10:33:03,647 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:00:11,139 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:00:12,059 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:00:22,063 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:00:22,709 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:00:32,712 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:00:33,461 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:00:43,464 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:00:44,111 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:00:54,114 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:00:54,761 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:21:31,109 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:21:31,797 - VirusTotalIntegration - INFO - VirusTotal scan result for 7456afae0e947ec95c83eab26c3e9b4d1395c519d9b810c475ed33809c9768d5: 0 malicious
+2025-09-29 20:21:41,803 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:21:42,361 - VirusTotalIntegration - INFO - VirusTotal scan result for 7456afae0e947ec95c83eab26c3e9b4d1395c519d9b810c475ed33809c9768d5: 0 malicious
+2025-09-29 20:21:52,368 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:21:52,992 - VirusTotalIntegration - INFO - VirusTotal scan result for 7456afae0e947ec95c83eab26c3e9b4d1395c519d9b810c475ed33809c9768d5: 0 malicious
+2025-09-29 20:22:02,998 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:22:03,644 - VirusTotalIntegration - INFO - VirusTotal scan result for 7456afae0e947ec95c83eab26c3e9b4d1395c519d9b810c475ed33809c9768d5: 0 malicious
+2025-09-29 20:22:13,661 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:22:14,186 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:22:24,195 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:22:24,739 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:22:34,749 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:22:35,491 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:22:45,500 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:22:46,168 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:22:56,177 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:22:56,791 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:23:06,800 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:23:07,441 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:23:17,450 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:23:18,091 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:23:28,101 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:23:28,688 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:23:38,697 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:23:39,390 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:23:49,400 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:23:49,936 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:23:59,946 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:24:00,509 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:24:10,518 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:24:11,238 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:24:21,248 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:24:21,888 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:24:31,897 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:24:32,670 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:24:42,680 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:24:48,820 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:24:58,829 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:24:59,469 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:25:09,479 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:25:10,222 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:25:20,231 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:25:20,871 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:25:30,881 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:25:31,522 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:25:41,533 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:25:42,306 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:25:52,315 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:25:53,027 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:26:03,036 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:26:03,698 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:26:13,706 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:26:14,419 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:26:24,428 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:26:25,079 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:26:35,088 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:26:36,035 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:26:46,044 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:26:46,618 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:26:56,628 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:26:57,233 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 20:27:07,243 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 20:27:07,884 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious

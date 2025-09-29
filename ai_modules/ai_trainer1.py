@@ -8,17 +8,17 @@ from utils.config_loader import load_config
 import random
 
 class AIModelTrainer:
-    \"\"\"
+    """\"\"\"
     AI Model Training module for FIM system
     Generates synthetic training data and trains risk assessment models
-    \"\"\"
+    \"\"\""""
     
     def __init__(self):
         self.config = load_config()
         self.risk_scorer = AIRiskScorer()
         
     def generate_synthetic_training_data(self, num_samples=1000):
-        \"\"\"
+        """\"\"\"
         Generate synthetic training data for AI model training
         
         Args:
@@ -26,7 +26,7 @@ class AIModelTrainer:
             
         Returns:
             Tuple of (features_list, labels_list)
-        \"\"\"
+        \"\"\""""
         features_list = []
         labels_list = []
         
@@ -103,13 +103,13 @@ class AIModelTrainer:
         return features_list, labels_list
     
     def train_model(self, features_list=None, labels_list=None):
-        \"\"\"
+        """\"\"\"
         Train the AI risk assessment model
         
         Args:
             features_list: List of feature dictionaries (optional)
             labels_list: List of risk labels (optional)
-        \"\"\"
+        \"\"\""""
         print("🤖 Starting AI Model Training...")
         
         # Generate synthetic data if not provided
@@ -128,7 +128,7 @@ class AIModelTrainer:
         return True
     
     def evaluate_model(self):
-        \"\"\"Evaluate the trained model with test data\"\"\"
+        #\"\"\"Evaluate the trained model with test data\"\"\"
         print("🔍 Evaluating model performance...")
         
         # Generate test data
@@ -156,7 +156,7 @@ class AIModelTrainer:
         return accuracy
 
 def main():
-    \"\"\"Main training function\"\"\"
+    #\"\"\"Main training function\"\"\"
     trainer = AIModelTrainer()
     
     print("🚀 FIM AI Model Training System")
@@ -291,7 +291,7 @@ def save_baseline(data):
     print(f"Baseline saved to {BASELINE_PATH}")
 
 def initialize_ai_system(sample_changes):
-    \"\"\"Initialize and optionally train the AI risk scoring system\"\"\"
+    #\"\"\"Initialize and optionally train the AI risk scoring system\"\"\"
     if not AI_ENABLED:
         print("AI Risk Scoring is disabled in configuration")
         return
