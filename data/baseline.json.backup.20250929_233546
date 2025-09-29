@@ -1,0 +1,366 @@
+{
+    "sample-img.py": {
+        "hash": "7fa8d9df3c8282ed015fdbb36f94511bd465d3b23437f97b8dcb6b4be69487ee",
+        "size": 13498,
+        "last_modified": "Mon Aug 11 13:06:46 2025",
+        "created_time": "Mon Aug 11 13:06:46 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "he.sh": {
+        "hash": "536e7e69629a146a84a7fb91a4050e5be520980be83e5ba4220d8bee36d7f6e6",
+        "size": 22,
+        "last_modified": "Thu Sep  4 13:22:25 2025",
+        "created_time": "Thu Sep  4 13:22:25 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "eicar1.txt": {
+        "hash": "131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267",
+        "size": 69,
+        "last_modified": "Mon Sep 29 10:05:59 2025",
+        "created_time": "Mon Sep 29 10:05:59 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "hdjk.conf": {
+        "hash": "1d7bf630c80a967a379585bbadf995c6fb34b3f42f30b42ed993234c22e3eb65",
+        "size": 10,
+        "last_modified": "Tue Sep  9 12:35:42 2025",
+        "created_time": "Tue Sep  9 12:35:42 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "kdfjdl.txt": {
+        "hash": "93afcdb21449c8f4bb4c68e94814c9152704247db7b2924ec120ea5eb57c9ccb",
+        "size": 6,
+        "last_modified": "Mon Sep 29 23:28:34 2025",
+        "created_time": "Mon Sep 29 23:28:34 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "hello.txt": {
+        "hash": "c1982a954637a05568e6b80231a4e85d0f7c06f2b1c62c11c1b965978816b9e9",
+        "size": 23,
+        "last_modified": "Tue Sep  9 07:07:22 2025",
+        "created_time": "Tue Sep  9 07:07:22 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "sj.txt": {
+        "hash": "f2099cbbd149e4167c673f60776e7dbf8443c6a08a3591ab0f45f2e7c43d9394",
+        "size": 12,
+        "last_modified": "Sat Aug 16 20:29:51 2025",
+        "created_time": "Mon Sep  8 20:10:05 2025",
+        "permissions": "777",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "eicar.txt": {
+        "hash": "131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267",
+        "size": 69,
+        "last_modified": "Mon Sep 29 20:20:41 2025",
+        "created_time": "Mon Sep 29 20:20:41 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "test.txt": {
+        "hash": "131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267",
+        "size": 69,
+        "last_modified": "Mon Sep 29 22:45:24 2025",
+        "created_time": "Mon Sep 29 22:45:24 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "hello.sh": {
+        "hash": "1fd61145be4715c277f025ad09aa21ea84a028941add36ea0f896f6f8530bf6d",
+        "size": 5,
+        "last_modified": "Mon Sep 29 08:17:01 2025",
+        "created_time": "Mon Sep 29 08:17:01 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "virus.txt": {
+        "hash": "131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267",
+        "size": 69,
+        "last_modified": "Mon Sep 29 20:22:04 2025",
+        "created_time": "Mon Sep 29 20:22:04 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "jkd.java": {
+        "hash": "d3b065c7916ce271b812ca1fd1564e1e251b90f7754280a4b4fd2221c32a2983",
+        "size": 8,
+        "last_modified": "Tue Sep  9 12:32:14 2025",
+        "created_time": "Tue Sep  9 12:32:14 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "yadhu.sh": {
+        "hash": "229b94e57f0951fe63f813f505a722dad656ba76ab9bdceb42f3d12b186c5289",
+        "size": 19,
+        "last_modified": "Tue Sep  9 12:35:03 2025",
+        "created_time": "Tue Sep  9 12:35:03 2025",
+        "permissions": "777",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "1": {
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0,
+        "last_modified": "Mon Aug 11 12:44:24 2025",
+        "created_time": "Mon Aug 11 12:44:24 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "joel.txt": {
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0,
+        "last_modified": "Sat Aug 16 20:28:59 2025",
+        "created_time": "Sat Aug 16 20:28:59 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "tes.txt": {
+        "hash": "eab1492b2d4e879173bea7782b52c3fee70011645c1a30c3c6670cf106c31b6a",
+        "size": 11,
+        "last_modified": "Mon Sep 29 23:09:04 2025",
+        "created_time": "Mon Sep 29 23:09:04 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "bash.sh": {
+        "hash": "dc122cd797e76d1e0b07efe6262829098581816f1727d9a883bd4052a4e659ef",
+        "size": 6,
+        "last_modified": "Thu Sep  4 19:15:02 2025",
+        "created_time": "Thu Sep  4 19:15:02 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "hacker.bat": {
+        "hash": "bb279fac7c78f4f9fff5523a0e1122ff53678bcb5de65f850684275bccb5b380",
+        "size": 14,
+        "last_modified": "Thu Sep  4 19:16:40 2025",
+        "created_time": "Thu Sep  4 19:16:40 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "sample.html": {
+        "hash": "7456afae0e947ec95c83eab26c3e9b4d1395c519d9b810c475ed33809c9768d5",
+        "size": 3,
+        "last_modified": "Mon Sep 29 20:21:24 2025",
+        "created_time": "Mon Sep 29 20:21:24 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "123.he": {
+        "hash": "a4fb621495a0122493b2203591c448903c472e306a1ede54fabad829e01075c0",
+        "size": 2,
+        "last_modified": "Mon Aug 11 12:37:04 2025",
+        "created_time": "Mon Aug 11 12:37:04 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "just.txt": {
+        "hash": "8354068bc9d6f8ab30b9d15bb8339a596098cbef44572bd6df4410670bc15a46",
+        "size": 4,
+        "last_modified": "Mon Sep 29 08:04:31 2025",
+        "created_time": "Mon Sep 29 08:04:31 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    ".hidd/.newww": {
+        "hash": "f63b81cdf17fec918bb17b80e4067d2539576fec05650c3fba433d3d6b408f42",
+        "size": 15,
+        "last_modified": "Sat Aug 16 20:39:10 2025",
+        "created_time": "Sat Aug 16 20:39:10 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "etc/test.txt": {
+        "hash": "131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267",
+        "size": 69,
+        "last_modified": "Mon Sep 29 22:43:25 2025",
+        "created_time": "Mon Sep 29 22:43:25 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "etc/jkd.java": {
+        "hash": "c92005587fdeeff10fea2afda59274e677c7611649d8e773d70ecd253a6d1583",
+        "size": 24,
+        "last_modified": "Mon Sep 29 22:42:47 2025",
+        "created_time": "Mon Sep 29 22:42:47 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "etc/sample.sh": {
+        "hash": "cc73decba53bbe8cf9d83d1cf92151ca01ac06243d03ef8e49772dbf329b3211",
+        "size": 9,
+        "last_modified": "Tue Sep  9 12:31:08 2025",
+        "created_time": "Tue Sep  9 12:31:08 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "etc/sample.html": {
+        "hash": "10e37a005f1018c64ae4fd3ee77589ff4ab9d9818cef3ff1089bbc294f413693",
+        "size": 7,
+        "last_modified": "Mon Sep 29 22:42:17 2025",
+        "created_time": "Mon Sep 29 22:42:17 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "Unknown",
+            "modification_time": null,
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    }
+}

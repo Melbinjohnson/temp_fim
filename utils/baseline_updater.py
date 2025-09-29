@@ -72,10 +72,68 @@ def update_baseline_for_files(file_paths, monitor_path, baseline_path):
             
         results['backup_created'] = backup_path
         
+        # Also clean up the reports when baseline is updated
+        cleanup_reports_for_updated_files(file_paths)
+        
     except Exception as e:
         results['errors'].append(f"Failed to save baseline: {e}")
     
     return results
+
+def cleanup_reports_for_updated_files(file_paths):
+    """
+    Remove updated files from AI and VT reports since they're now accepted in baseline
+    """
+    config = load_config()
+    ai_report_path = config.get("ai_report_file", "data/ai_risk_report.json")
+    vt_report_path = config.get("vt_report_file", "data/virustotal_report.json")
+    
+    # Clean AI report
+    if os.path.exists(ai_report_path):
+        try:
+            with open(ai_report_path, "r") as f:
+                ai_results = json.load(f)
+            
+            cleaned = False
+            for category in ['high_risk_changes', 'medium_risk_changes', 'low_risk_changes']:
+                original_count = len(ai_results.get(category, []))
+                ai_results[category] = [
+                    change for change in ai_results.get(category, [])
+                    if change['file_path'] not in file_paths
+                ]
+                if len(ai_results[category]) < original_count:
+                    cleaned = True
+            
+            if cleaned:
+                with open(ai_report_path, "w") as f:
+                    json.dump(ai_results, f, indent=4)
+                    
+        except Exception as e:
+            print(f"Warning: Could not clean AI report: {e}")
+    
+    # Clean VT report  
+    if os.path.exists(vt_report_path):
+        try:
+            with open(vt_report_path, "r") as f:
+                vt_results = json.load(f)
+            
+            cleaned = False
+            for category in ['scanned_files', 'malicious_files', 'suspicious_files', 
+                           'clean_files', 'not_found_files', 'scan_errors']:
+                original_count = len(vt_results.get(category, []))
+                vt_results[category] = [
+                    result for result in vt_results.get(category, [])
+                    if result['file_path'] not in file_paths
+                ]
+                if len(vt_results[category]) < original_count:
+                    cleaned = True
+            
+            if cleaned:
+                with open(vt_report_path, "w") as f:
+                    json.dump(vt_results, f, indent=4)
+                    
+        except Exception as e:
+            print(f"Warning: Could not clean VT report: {e}")
 
 def update_single_file(file_path, monitor_path, baseline_path):
     """Update baseline for a single file"""

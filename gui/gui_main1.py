@@ -6,7 +6,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import seaborn as sns
 import numpy as np
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.config_loader import load_config, save_config
@@ -60,16 +60,17 @@ def read_vt_report():
 class PremiumDashboard(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.geometry("1400x900")  # Increased width for individual buttons
+        self.geometry("1320x900")
         self.title("Premium FIM Dashboard")
 
         # -- Fixed background image handling --
         try:
-            img_bg = Image.open("premium_gradient_bg.jpg").resize((1400,900))
-            self.bg_img = ctk.CTkImage(light_image=img_bg, dark_image=img_bg, size=(1400, 900))
+            img_bg = Image.open("premium_gradient_bg.jpg").resize((1320,900))
+            self.bg_img = ctk.CTkImage(light_image=img_bg, dark_image=img_bg, size=(1320, 900))
         except Exception:
-            img_bg = Image.new("RGBA", (1400,900), (26, 34, 56, 255))
-            self.bg_img = ctk.CTkImage(light_image=img_bg, dark_image=img_bg, size=(1400, 900))
+            # Create a gradient-like background if no image
+            img_bg = Image.new("RGBA", (1320,900), (26, 34, 56, 255))
+            self.bg_img = ctk.CTkImage(light_image=img_bg, dark_image=img_bg, size=(1320, 900))
         
         self.bg_label = ctk.CTkLabel(self, image=self.bg_img, text="")
         self.bg_label.place(relx=0, rely=0, relwidth=1, relheight=1)
@@ -111,6 +112,9 @@ class PremiumDashboard(ctk.CTk):
         # -- Main container --
         self.pages = {}
         self.monitor_process = None
+        
+        # Store file data for verification
+        self.file_data = {}
 
         # Create all pages
         self.pages["monitor"] = self.create_monitor_page()
@@ -127,22 +131,22 @@ class PremiumDashboard(ctk.CTk):
 
     def show_monitor(self):
         self.hide_all_pages()
-        self.pages["monitor"].place(relx=0.18, rely=0.04, relwidth=0.80, relheight=0.92)
+        self.pages["monitor"].place(relx=0.20, rely=0.04, relwidth=0.78, relheight=0.92)
         self.highlight_button(self.btn_monitor)
 
     def show_ai(self):
         self.hide_all_pages()
-        self.pages["ai"].place(relx=0.18, rely=0.04, relwidth=0.80, relheight=0.92)
+        self.pages["ai"].place(relx=0.20, rely=0.04, relwidth=0.78, relheight=0.92)
         self.highlight_button(self.btn_ai)
 
     def show_settings(self):
         self.hide_all_pages()
-        self.pages["settings"].place(relx=0.18, rely=0.04, relwidth=0.80, relheight=0.92)
+        self.pages["settings"].place(relx=0.20, rely=0.04, relwidth=0.78, relheight=0.92)
         self.highlight_button(self.btn_settings)
 
     def show_virustotal(self):
         self.hide_all_pages()
-        self.pages["virustotal"].place(relx=0.18, rely=0.04, relwidth=0.80, relheight=0.92)
+        self.pages["virustotal"].place(relx=0.20, rely=0.04, relwidth=0.78, relheight=0.92)
         self.highlight_button(self.btn_vt)
 
     def highlight_button(self, active_btn):
@@ -195,24 +199,142 @@ class PremiumDashboard(ctk.CTk):
                                           corner_radius=10, width=140, height=40)
         self.lbl_vt_status.place(relx=0.38, rely=0.15)
 
-        # NEW: Enhanced Changes Table with Individual Update Buttons
-        table_card = ctk.CTkFrame(frame, corner_radius=18, fg_color="#2a3444")
-        table_card.pack(fill="both", expand=True, padx=20, pady=(0, 10))
+        # Main content area with charts and table
+        content_frame = ctk.CTkFrame(frame, corner_radius=18, fg_color="#2a3444")
+        content_frame.pack(fill="both", expand=True, padx=20, pady=(0, 10))
 
-        table_header = ctk.CTkLabel(table_card, text="🔍 Detected Changes with Individual Actions", 
-                                   font=("Montserrat", 20, "bold"), text_color="#38c9e9")
-        table_header.pack(pady=(15, 10))
+        # Left side - Table with User column
+        left_frame = ctk.CTkFrame(content_frame, corner_radius=15, fg_color="#3a4555")
+        left_frame.pack(side="left", fill="both", expand=True, padx=(15, 7), pady=15)
 
-        # Scrollable frame for individual file cards
-        self.changes_scroll = ctk.CTkScrollableFrame(table_card, height=400, 
-                                                    fg_color="transparent", 
-                                                    scrollbar_button_color="#5178ff")
-        self.changes_scroll.pack(fill="both", expand=True, padx=15, pady=(0, 15))
+        table_header = ctk.CTkLabel(left_frame, text="🔍 Detected Changes (Double-Click to Verify)", 
+                                   font=("Montserrat", 18, "bold"), text_color="#38c9e9")
+        table_header.pack(anchor="nw", padx=15, pady=(10, 5))
 
-        # Store file cards for updates
-        self.file_cards = {}
+        # Enhanced Treeview Table with VT Status column + USER column (changed from Action)
+        columns = ("File", "Type", "Risk", "Score", "VT Status", "User")
+        style = ttk.Style()
+        style.theme_use("clam")
+        
+        # Premium table styling
+        style.configure("Treeview", 
+                       background="#2a3547", 
+                       fieldbackground="#2a3547", 
+                       foreground="#e4eafb",
+                       rowheight=35, 
+                       font=("Montserrat", 11),
+                       borderwidth=0)
+        style.configure("Treeview.Heading",
+                       background="#1e2749",
+                       foreground="#38c9e9",
+                       font=("Montserrat", 12, "bold"),
+                       relief="flat")
+        style.map("Treeview", background=[("selected", "#5178ff")])
+        
+        self.change_tree = ttk.Treeview(left_frame, columns=columns, show="headings", height=12)
+        
+        for col in columns:
+            self.change_tree.heading(col, text=col)
+            if col == "File":
+                self.change_tree.column(col, width=150, anchor="w")
+            elif col == "VT Status":
+                self.change_tree.column(col, width=100, anchor="center")
+            elif col == "User":  # CHANGED: from "Action" to "User"
+                self.change_tree.column(col, width=90, anchor="center")
+            else:
+                self.change_tree.column(col, width=70, anchor="center")
+        
+        tree_scroll = ttk.Scrollbar(left_frame, orient="vertical", command=self.change_tree.yview)
+        self.change_tree.configure(yscrollcommand=tree_scroll.set)
+        
+        self.change_tree.pack(side="left", fill="both", expand=True, padx=(15, 0), pady=(10, 15))
+        tree_scroll.pack(side="right", fill="y", pady=(10, 15), padx=(0, 15))
+
+        # Configure risk level tags with premium colors
+        self.change_tree.tag_configure("high_risk", background="#4a2c2c", foreground="#ff6b9d")
+        self.change_tree.tag_configure("medium_risk", background="#4a4a2c", foreground="#ffd93d")
+        self.change_tree.tag_configure("low_risk", background="#2c4a2c", foreground="#6bcf7f")
+
+        # Bind double-click to verify action (PRESERVED)
+        self.change_tree.bind("<Double-1>", self.on_table_double_click)
+
+        # Right side - Charts
+        right_frame = ctk.CTkFrame(content_frame, corner_radius=15, fg_color="#3a4555", width=350)
+        right_frame.pack(side="right", fill="y", padx=(7, 15), pady=15)
+        right_frame.pack_propagate(False)
+
+        # Enhanced Pie Chart
+        pie_header = ctk.CTkLabel(right_frame, text="📈 Distribution Overview", 
+                                 font=("Montserrat", 16, "bold"), text_color="#38c9e9")
+        pie_header.pack(pady=(15, 5))
+
+        self.fig, self.ax = plt.subplots(figsize=(4.2, 3.2), facecolor='none')
+        self.pie_canvas = FigureCanvasTkAgg(self.fig, master=right_frame)
+        self.pie_canvas.get_tk_widget().pack(padx=10, pady=10)
+
+        # Enhanced Bar Chart
+        bar_header = ctk.CTkLabel(right_frame, text="📊 Event Trends", 
+                                 font=("Montserrat", 16, "bold"), text_color="#38c9e9")
+        bar_header.pack(pady=(15, 5))
+
+        self.bar_fig, self.bar_ax = plt.subplots(figsize=(4.2, 2.5), facecolor='none')
+        self.bar_canvas = FigureCanvasTkAgg(self.bar_fig, master=right_frame)
+        self.bar_canvas.get_tk_widget().pack(padx=10, pady=(10, 15))
 
         return frame
+
+    def on_table_double_click(self, event):
+        """Handle double-click on table row to verify/update baseline"""
+        try:
+            item = self.change_tree.selection()[0]
+            values = self.change_tree.item(item, "values")
+            file_path = values[0]  # Get file name from first column
+            
+            # Find full file path from stored data
+            full_file_path = None
+            for stored_path, data in self.file_data.items():
+                display_path = stored_path[:30] + "..." if len(stored_path) > 30 else stored_path
+                if display_path == file_path or stored_path.endswith(file_path.replace("...", "")):
+                    full_file_path = stored_path
+                    break
+            
+            if full_file_path:
+                self.verify_file_baseline(full_file_path, item)
+            else:
+                messagebox.showwarning("File Not Found", f"Could not find full path for: {file_path}")
+                
+        except (IndexError, KeyError):
+            pass  # No selection or invalid data
+        except Exception as e:
+            messagebox.showerror("Error", f"Verification failed: {str(e)}")
+
+    def verify_file_baseline(self, file_path, tree_item):
+        """Verify individual file and update baseline"""
+        try:
+            result = messagebox.askyesno(
+                "Verify File", 
+                f"Update baseline for:\n\n{file_path}\n\nThis accepts this change as legitimate.",
+                icon="question"
+            )
+            
+            if result:
+                from utils.baseline_updater import update_single_file
+                
+                config = load_config()
+                results = update_single_file(file_path, config["monitor_path"], config["baseline_file"])
+                
+                if results['errors']:
+                    messagebox.showerror("Update Failed", f"Failed:\n{results['errors'][0]}")
+                else:
+                    messagebox.showinfo("Success", f"✅ Baseline updated for:\n{os.path.basename(file_path)}")
+                    # Remove from table
+                    self.change_tree.delete(tree_item)
+                    # Remove from stored data
+                    if file_path in self.file_data:
+                        del self.file_data[file_path]
+                        
+        except Exception as e:
+            messagebox.showerror("Error", f"Verification failed:\n{str(e)}")
 
     def create_ai_page(self):
         frame = ctk.CTkFrame(self, corner_radius=20, fg_color="transparent")
@@ -411,149 +533,7 @@ class PremiumDashboard(ctk.CTk):
 
         return frame
 
-    # NEW: Individual File Card Creation
-    def create_file_card(self, file_path, change_type, risk_data, vt_status):
-        """Create an individual file card with update button"""
-        
-        # Remove existing card if it exists
-        if file_path in self.file_cards:
-            self.file_cards[file_path].destroy()
-        
-        # Create new card
-        card = ctk.CTkFrame(self.changes_scroll, corner_radius=12, fg_color="#3a4555", height=80)
-        card.pack(fill="x", pady=5, padx=10)
-
-        # Left side - File info
-        info_frame = ctk.CTkFrame(card, fg_color="transparent")
-        info_frame.pack(side="left", fill="both", expand=True, padx=15, pady=10)
-
-        # File path with color coding
-        colors = {"modified": "#ff6b9d", "new": "#ffd93d", "deleted": "#999999"}
-        text_color = colors.get(change_type, "#e4eafb")
-        
-        display_path = file_path[:80] + "..." if len(file_path) > 80 else file_path
-        path_label = ctk.CTkLabel(info_frame, text=f"{change_type.upper()}: {display_path}", 
-                                 font=("Montserrat", 14, "bold"), text_color=text_color)
-        path_label.pack(anchor="w")
-
-        # Risk and VT info
-        info_text = ""
-        if risk_data:
-            info_text += f"Risk: {risk_data.get('risk_score', 0):.3f} ({risk_data.get('risk_level', 'UNKNOWN')}) "
-        if vt_status:
-            info_text += f"• VT: {vt_status}"
-        
-        if info_text:
-            info_label = ctk.CTkLabel(info_frame, text=info_text, 
-                                     font=("Montserrat", 11), text_color="#999999")
-            info_label.pack(anchor="w", pady=(5, 0))
-
-        # Right side - Action buttons
-        button_frame = ctk.CTkFrame(card, fg_color="transparent")
-        button_frame.pack(side="right", padx=15, pady=10)
-
-        # Update baseline button
-        update_btn = ctk.CTkButton(button_frame, text="✅ Update", corner_radius=8, height=30, width=80,
-                                  fg_color="#6bcf7f", hover_color="#4caf50", 
-                                  font=("Montserrat", 12, "bold"),
-                                  command=lambda fp=file_path: self.update_single_file_baseline(fp))
-        update_btn.pack(side="right", padx=(10, 0))
-
-        # View details button
-        details_btn = ctk.CTkButton(button_frame, text="🔍 Details", corner_radius=8, height=30, width=80,
-                                   fg_color="#5178ff", hover_color="#38c9e9", 
-                                   font=("Montserrat", 12, "bold"),
-                                   command=lambda fp=file_path, rd=risk_data, vs=vt_status: self.show_file_details(fp, rd, vs))
-        details_btn.pack(side="right")
-
-        # Store card reference
-        self.file_cards[file_path] = card
-
-    def update_single_file_baseline(self, file_path):
-        """Update baseline for a single file"""
-        try:
-            from utils.baseline_updater import update_single_file
-            config = load_config()
-            
-            # Show confirmation dialog
-            result = tk.messagebox.askyesno("Confirm Update", 
-                                          f"Update baseline for:\n{file_path}\n\nThis will accept this change as legitimate.")
-            
-            if result:
-                # Update baseline
-                results = update_single_file(file_path, config["monitor_path"], config["baseline_file"])
-                
-                if results['errors']:
-                    tk.messagebox.showerror("Error", f"Failed to update baseline:\n{results['errors'][0]}")
-                else:
-                    tk.messagebox.showinfo("Success", f"Baseline updated for:\n{file_path}")
-                    # Remove the card since it's now in baseline
-                    if file_path in self.file_cards:
-                        self.file_cards[file_path].destroy()
-                        del self.file_cards[file_path]
-                    
-        except Exception as e:
-            tk.messagebox.showerror("Error", f"Failed to update baseline:\n{str(e)}")
-
-    def show_file_details(self, file_path, risk_data, vt_status):
-        """Show detailed information about a file"""
-        popup = ctk.CTkToplevel(self)
-        popup.geometry("600x400")
-        popup.title(f"File Details: {os.path.basename(file_path)}")
-        popup.transient(self)
-        popup.grab_set()
-        
-        # Center the popup
-        popup.geometry("+%d+%d" % (self.winfo_rootx() + 100, self.winfo_rooty() + 100))
-        
-        # Header
-        header = ctk.CTkLabel(popup, text=f"📄 {os.path.basename(file_path)}", 
-                             font=("Montserrat", 20, "bold"), text_color="#38c9e9")
-        header.pack(pady=20)
-        
-        # Details text
-        details_text = ctk.CTkTextbox(popup, font=("Montserrat", 12), 
-                                     fg_color="#2a3444", text_color="#e4eafb")
-        details_text.pack(fill="both", expand=True, padx=20, pady=(0, 20))
-        
-        # Format details
-        content = f"📂 FULL PATH:\n{file_path}\n\n"
-        
-        if risk_data:
-            content += f"🤖 AI RISK ANALYSIS:\n"
-            content += f"   Risk Score: {risk_data.get('risk_score', 0):.3f}\n"
-            content += f"   Risk Level: {risk_data.get('risk_level', 'UNKNOWN')}\n"
-            content += f"   Change Type: {risk_data.get('change_type', 'UNKNOWN')}\n"
-            if risk_data.get('recommendations'):
-                content += f"   Recommendations: {', '.join(risk_data['recommendations'])}\n"
-            content += "\n"
-        
-        if vt_status and vt_status != "Not Scanned":
-            content += f"🦠 VIRUSTOTAL STATUS:\n"
-            content += f"   Status: {vt_status}\n\n"
-        
-        try:
-            full_path = os.path.join(CONFIG["monitor_path"], file_path)
-            if os.path.exists(full_path):
-                stat = os.stat(full_path)
-                content += f"📊 FILE INFORMATION:\n"
-                content += f"   Size: {stat.st_size:,} bytes\n"
-                content += f"   Modified: {datetime.fromtimestamp(stat.st_mtime).strftime('%Y-%m-%d %H:%M:%S')}\n"
-                content += f"   Permissions: {oct(stat.st_mode)[-3:]}\n"
-            else:
-                content += f"❌ FILE STATUS:\n   File has been deleted\n"
-        except Exception as e:
-            content += f"❌ ERROR:\n   Could not get file information: {e}\n"
-        
-        details_text.insert("0.0", content)
-        details_text.configure(state="disabled")
-        
-        # Close button
-        close_btn = ctk.CTkButton(popup, text="Close", command=popup.destroy,
-                                 fg_color="#5178ff", hover_color="#38c9e9")
-        close_btn.pack(pady=20)
-
-    # Settings Handlers (unchanged)
+    # ------ Settings Handlers -------
     def toggle_ai_scoring(self):
         CONFIG["ai_risk_scoring"] = bool(self.ai_enabled.get())
         save_config(CONFIG)
@@ -608,7 +588,9 @@ class PremiumDashboard(ctk.CTk):
     def test_vt_connection(self):
         try:
             if CONFIG.get("virustotal_api_key"):
+                # Test the connection
                 self.vt_status_label.configure(text="🔍 Testing connection...", text_color="#ffd93d")
+                # You can add actual connection test logic here
                 self.after(2000, lambda: self.vt_status_label.configure(text="✅ Connection successful!", text_color="#6bcf7f"))
             else:
                 self.vt_status_label.configure(text="❌ No API key configured!", text_color="#ff6b9d")
@@ -648,6 +630,101 @@ class PremiumDashboard(ctk.CTk):
         else:
             self.status_label.configure(text="⚠️ No active monitoring.", text_color="#ffd93d")
 
+    # ------ Enhanced Chart Updates ------
+    def update_pie_chart(self, modified_count, new_count, deleted_count):
+        """Enhanced donut-style pie chart with premium styling"""
+        self.ax.clear()
+        
+        if not any([modified_count, new_count, deleted_count]):
+            self.ax.text(0.5, 0.5, 'No Data Available', ha='center', va='center',
+                        transform=self.ax.transAxes, fontsize=14, color='#38c9e9',
+                        fontweight='bold')
+        else:
+            sizes = [modified_count, new_count, deleted_count]
+            labels = ['Modified', 'New', 'Deleted']
+            colors = ['#ff6b9d', '#ffd93d', '#6bcf7f']
+            explode = (0.05, 0.05, 0.05)  # Slight separation for premium look
+            
+            wedges, texts, autotexts = self.ax.pie(
+                sizes, 
+                labels=labels, 
+                colors=colors,
+                explode=explode,
+                autopct='%1.1f%%',
+                startangle=90,
+                wedgeprops={
+                    'width': 0.6,  # Donut effect
+                    'edgecolor': '#1e2749',
+                    'linewidth': 2,
+                    'alpha': 0.9
+                },
+                textprops={'fontsize': 11, 'fontweight': 'bold'}
+            )
+            
+            # Style the text
+            for text in texts:
+                text.set_color('#e4eafb')
+            for autotext in autotexts:
+                autotext.set_color('#1e2749')
+                autotext.set_fontweight('bold')
+            
+            # Add center text
+            self.ax.text(0, 0, f'Total\n{sum(sizes)}', ha='center', va='center',
+                        fontsize=16, fontweight='bold', color='#38c9e9')
+        
+        self.ax.set_facecolor('none')
+        self.fig.patch.set_facecolor('none')
+        self.pie_canvas.draw()
+
+    def update_bar_chart(self, modified_count, new_count, deleted_count):
+        """Enhanced 3D-style bar chart with gradients and shadows"""
+        self.bar_ax.clear()
+        
+        if not any([modified_count, new_count, deleted_count]):
+            self.bar_ax.text(0.5, 0.5, 'No Data Available', ha='center', va='center',
+                            transform=self.bar_ax.transAxes, fontsize=12, color='#38c9e9',
+                            fontweight='bold')
+        else:
+            categories = ['Modified', 'New', 'Deleted']
+            values = [modified_count, new_count, deleted_count]
+            colors = ['#ff6b9d', '#ffd93d', '#6bcf7f']
+            
+            # Create bars with premium styling
+            bars = self.bar_ax.bar(categories, values, color=colors, alpha=0.8,
+                                  edgecolor='#1e2749', linewidth=2, width=0.6)
+            
+            # Add value labels on top of bars
+            for bar, value in zip(bars, values):
+                if value > 0:
+                    self.bar_ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.5,
+                                    f'{value}', ha='center', va='bottom', 
+                                    fontweight='bold', fontsize=12, color='#e4eafb')
+            
+            # Add gradient effect (simulate with alpha)
+            for i, bar in enumerate(bars):
+                # Add a lighter overlay for 3D effect
+                overlay_color = colors[i]
+                self.bar_ax.bar(bar.get_x(), bar.get_height() * 0.1, 
+                               width=bar.get_width(), bottom=bar.get_height() * 0.9,
+                               color=overlay_color, alpha=0.3, edgecolor='none')
+        
+        # Style the axes
+        self.bar_ax.set_facecolor('none')
+        self.bar_ax.tick_params(colors='#e4eafb', labelsize=10)
+        self.bar_ax.set_ylabel('Events', fontweight='bold', color='#38c9e9', fontsize=11)
+        
+        # Remove top and right spines
+        self.bar_ax.spines['top'].set_visible(False)
+        self.bar_ax.spines['right'].set_visible(False)
+        self.bar_ax.spines['left'].set_color('#38c9e9')
+        self.bar_ax.spines['bottom'].set_color('#38c9e9')
+        
+        # Add grid
+        self.bar_ax.grid(True, alpha=0.3, color='#38c9e9', linestyle='-', linewidth=0.5)
+        
+        self.bar_fig.patch.set_facecolor('none')
+        self.bar_canvas.draw()
+
     def update_risk_distribution_chart(self, ai_report):
         """Enhanced risk distribution chart with premium styling"""
         self.risk_ax.clear()
@@ -661,16 +738,22 @@ class PremiumDashboard(ctk.CTk):
         colors = ['#ff6b9d', '#ffd93d', '#6bcf7f']
         
         if any(risk_counts):
+            # Create enhanced bars
             bars = self.risk_ax.bar(risk_labels, risk_counts, color=colors, alpha=0.85,
                                    edgecolor='#1e2749', linewidth=2, width=0.5)
+            
+            # Add value labels
             for bar, count in zip(bars, risk_counts):
                 if count > 0:
                     self.risk_ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.1,
                                      str(count), ha='center', va='bottom', 
                                      fontweight='bold', fontsize=14, color='#e4eafb')
+            
+            # Add subtle gradient effect
             for i, bar in enumerate(bars):
                 height = bar.get_height()
                 if height > 0:
+                    # Add highlight on top
                     self.risk_ax.bar(bar.get_x(), height * 0.15, width=bar.get_width(),
                                     bottom=height * 0.85, color='white', alpha=0.3)
         else:
@@ -678,17 +761,24 @@ class PremiumDashboard(ctk.CTk):
                              transform=self.risk_ax.transAxes, fontsize=14, color='#38c9e9',
                              fontweight='bold')
         
+        # Style the chart
         self.risk_ax.set_facecolor('none')
         self.risk_ax.set_ylabel('Number of Changes', fontweight='bold', color='#38c9e9', fontsize=12)
         self.risk_ax.tick_params(colors='#e4eafb', labelsize=11)
+        
+        # Enhanced grid
         self.risk_ax.grid(True, alpha=0.2, color='#38c9e9', linestyle='-', linewidth=0.8)
+        
+        # Remove spines except bottom
         for spine in self.risk_ax.spines.values():
             spine.set_visible(False)
         self.risk_ax.spines['bottom'].set_visible(True)
         self.risk_ax.spines['bottom'].set_color('#38c9e9')
+        
         self.risk_fig.patch.set_facecolor('none')
         self.risk_canvas.draw()
 
+    # ------ Main Update Function ------
     def update_gui(self):
         """Main GUI update function with enhanced styling"""
         report = read_report()
@@ -733,7 +823,7 @@ class PremiumDashboard(ctk.CTk):
         self.lbl_ai_score.configure(text_color=risk_color)
         self.lbl_ai_status.configure(text=status_text, text_color=risk_color)
 
-        # VirusTotal dashboard
+        # ----- VirusTotal dashboard -----
         if CONFIG.get("virustotal_enabled", False):
             vt_malicious = len(vt_report.get("malicious_files", []))
             vt_suspicious = len(vt_report.get("suspicious_files", []))
@@ -751,20 +841,69 @@ class PremiumDashboard(ctk.CTk):
             vt_text = "VT: Disabled"
         self.lbl_vt_status.configure(text=vt_text, text_color=vt_color)
 
-        # NEW: Update individual file cards
-        self.update_file_cards(ai_report, vt_report)
+        # Update table with enhanced styling including USER column (CHANGED)
+        for item in self.change_tree.get_children():
+            self.change_tree.delete(item)
         
-        # Update risk distribution chart
+        # Clear stored file data
+        self.file_data.clear()
+        
+        # Add changes with color coding
+        all_changes = []
+        for change in ai_report.get("high_risk_changes", []):
+            all_changes.append((change, "high_risk"))
+        for change in ai_report.get("medium_risk_changes", []):
+            all_changes.append((change, "medium_risk"))
+        for change in ai_report.get("low_risk_changes", []):
+            all_changes.append((change, "low_risk"))
+        
+        for change, tag in all_changes:
+            file_path = change.get("file_path", "")
+            display_path = file_path[:30] + "..." if len(file_path) > 30 else file_path
+            
+            # Store full file path for verification
+            self.file_data[file_path] = change
+            
+            # Get VirusTotal status for this file
+            vt_status = "Not Scanned"
+            for vt_file in vt_report.get("scanned_files", []):
+                if vt_file.get("file_path") == file_path:
+                    if vt_file.get("malicious", 0) > 0:
+                        vt_status = f"🚨 {vt_file['malicious']} Malicious"
+                    elif vt_file.get("suspicious", 0) > 0:
+                        vt_status = f"⚠️ {vt_file['suspicious']} Suspicious"
+                    elif vt_file.get("status") == "not_found":
+                        vt_status = "❓ Unknown"
+                    else:
+                        vt_status = "✅ Clean"
+                    break
+            
+            # CHANGED: Show actual user instead of "Double-Click"
+            user_display = f"👤 {change.get('audit_user', 'Unknown')}"
+            
+            self.change_tree.insert("", "end", values=(
+                display_path,
+                change.get("change_type", "").title(),
+                change.get("risk_level", ""),
+                f"{change.get('risk_score', 0):.3f}",
+                vt_status,
+                user_display  # NEW: Show actual user who made the change
+            ), tags=(tag,))
+
+        # Update enhanced charts
+        self.update_pie_chart(modified_count, new_count, deleted_count)
+        self.update_bar_chart(modified_count, new_count, deleted_count)
         self.update_risk_distribution_chart(ai_report)
 
-        # Update alerts text
+        # Update alerts text with enhanced formatting
         self.alerts_text.delete("0.0", ctk.END)
         critical_alerts = ai_report.get("critical_alerts", [])
         recommendations = ai_report.get("recommendations", [])
         
+        # VirusTotal alerts
         if vt_report.get("malicious_files"):
             self.alerts_text.insert(ctk.END, "🦠 VIRUSTOTAL MALWARE DETECTED:\n")
-            for malicious_file in vt_report["malicious_files"][:3]:
+            for malicious_file in vt_report["malicious_files"][:3]:  # Show top 3
                 file_name = malicious_file["file_path"].split("/")[-1]
                 detections = malicious_file.get("malicious", 0)
                 self.alerts_text.insert(ctk.END, f"• {file_name} - {detections} engines detected malware\n")
@@ -787,54 +926,6 @@ class PremiumDashboard(ctk.CTk):
 
         # Schedule next update
         self.after(SCAN_INTERVAL, self.update_gui)
-
-    def update_file_cards(self, ai_report, vt_report):
-        """Update individual file cards"""
-        # Clear existing cards that are no longer relevant
-        current_files = set()
-        
-        # Collect all changes with their risk data
-        all_changes = {}
-        
-        for change in ai_report.get("high_risk_changes", []):
-            file_path = change.get("file_path", "")
-            all_changes[file_path] = change
-            current_files.add(file_path)
-            
-        for change in ai_report.get("medium_risk_changes", []):
-            file_path = change.get("file_path", "")
-            all_changes[file_path] = change
-            current_files.add(file_path)
-            
-        for change in ai_report.get("low_risk_changes", []):
-            file_path = change.get("file_path", "")
-            all_changes[file_path] = change
-            current_files.add(file_path)
-        
-        # Remove cards for files that are no longer in the changes
-        for file_path in list(self.file_cards.keys()):
-            if file_path not in current_files:
-                self.file_cards[file_path].destroy()
-                del self.file_cards[file_path]
-        
-        # Create/update cards for current changes
-        for file_path, risk_data in all_changes.items():
-            # Get VirusTotal status
-            vt_status = "Not Scanned"
-            for vt_file in vt_report.get("scanned_files", []):
-                if vt_file.get("file_path") == file_path:
-                    if vt_file.get("malicious", 0) > 0:
-                        vt_status = f"🚨 {vt_file['malicious']} Malicious"
-                    elif vt_file.get("suspicious", 0) > 0:
-                        vt_status = f"⚠️ {vt_file['suspicious']} Suspicious"
-                    elif vt_file.get("status") == "not_found":
-                        vt_status = "❓ Unknown"
-                    else:
-                        vt_status = "✅ Clean"
-                    break
-            
-            change_type = risk_data.get("change_type", "unknown")
-            self.create_file_card(file_path, change_type, risk_data, vt_status)
 
 if __name__ == "__main__":
     app = PremiumDashboard()

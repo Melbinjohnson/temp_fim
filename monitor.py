@@ -5,6 +5,7 @@ from datetime import datetime
 from utils.file_utils import get_file_metadata
 from utils.config_loader import load_config
 from utils.email_alert import send_email_alert, play_beep
+from utils.audit_utils import get_file_audit_info, check_audit_system, setup_audit_rules
 from ai_modules.risk_scorer import AIRiskScorer
 from utils.virus_total import check_file_hash_vt, vt_integration, set_vt_api_key
 
@@ -14,6 +15,7 @@ MONITOR_PATH = config["monitor_path"]
 BASELINE_PATH = config["baseline_file"]
 REPORT_PATH = config["report_file"]
 AI_REPORT_PATH = config.get("ai_report_file", "data/ai_risk_report.json")
+VT_REPORT_PATH = config.get("vt_report_file", "data/virustotal_report.json")
 exclude = config["exclude"]
 SCAN_INTERVAL = config.get("scan_interval", 10)
 AI_ENABLED = config.get("ai_risk_scoring", True)
@@ -63,6 +65,62 @@ def compare_states(baseline, current):
             new.append(path)
 
     return modified, deleted, new
+
+def enhance_changes_with_audit_info(modified, deleted, new, current_state):
+    """Enhance detected changes with audit information"""
+    enhanced_changes = []
+    
+    # Process modified files
+    for file_path in modified:
+        audit_info = get_file_audit_info(file_path, "modified")
+        metadata = current_state.get(file_path, {})
+        
+        enhanced_changes.append({
+            'file_path': file_path,
+            'change_type': 'modified',
+            'audit_user': audit_info.get('user', 'Unknown'),
+            'audit_timestamp': audit_info.get('timestamp'),
+            'audit_process': audit_info.get('process', 'Unknown'),
+            'audit_command': audit_info.get('command', 'Unknown'),
+            'file_owner': metadata.get('owner', 'Unknown'),
+            'file_size': metadata.get('size', 0),
+            'last_modified': metadata.get('last_modified', 'Unknown')
+        })
+    
+    # Process new files
+    for file_path in new:
+        audit_info = get_file_audit_info(file_path, "created")
+        metadata = current_state.get(file_path, {})
+        
+        enhanced_changes.append({
+            'file_path': file_path,
+            'change_type': 'new',
+            'audit_user': audit_info.get('user', 'Unknown'),
+            'audit_timestamp': audit_info.get('timestamp'),
+            'audit_process': audit_info.get('process', 'Unknown'),
+            'audit_command': audit_info.get('command', 'Unknown'),
+            'file_owner': metadata.get('owner', 'Unknown'),
+            'file_size': metadata.get('size', 0),
+            'last_modified': metadata.get('last_modified', 'Unknown')
+        })
+    
+    # Process deleted files
+    for file_path in deleted:
+        audit_info = get_file_audit_info(file_path, "deleted")
+        
+        enhanced_changes.append({
+            'file_path': file_path,
+            'change_type': 'deleted',
+            'audit_user': audit_info.get('user', 'Unknown'),
+            'audit_timestamp': audit_info.get('timestamp'),
+            'audit_process': audit_info.get('process', 'Unknown'),
+            'audit_command': audit_info.get('command', 'Unknown'),
+            'file_owner': 'N/A',
+            'file_size': 0,
+            'last_modified': 'N/A'
+        })
+    
+    return enhanced_changes
 
 def analyze_with_ai(changes_dict, current_data, ai_scorer):
     """
@@ -157,7 +215,7 @@ def analyze_with_virustotal(modified, new, deleted, current_data):
             print("🦠 No API key available")
             return vt_results
     
-    # Files to scan
+    # Files to scan (only new and modified, not deleted)
     files_to_scan = []
     if current_config.get("virustotal_scan_new_files", True):
         files_to_scan.extend(new)
@@ -230,8 +288,136 @@ def analyze_with_virustotal(modified, new, deleted, current_data):
     print(f"🦠 VirusTotal scan complete: {len(vt_results['scanned_files'])} scanned, {len(vt_results['not_found_files'])} unknown")
     return vt_results
 
+def merge_vt_results(existing_vt_results, new_vt_results):
+    """
+    Merge new VirusTotal results with existing ones, preserving old scans
+    """
+    if not existing_vt_results:
+        return new_vt_results
+    
+    if not new_vt_results:
+        return existing_vt_results
+    
+    # Create a merged result starting with existing data
+    merged = existing_vt_results.copy()
+    
+    # Track files that have new scans
+    new_scanned_files = set()
+    for new_file in new_vt_results.get('scanned_files', []):
+        new_scanned_files.add(new_file['file_path'])
+    
+    # Remove old entries for files with new scans
+    for category in ['scanned_files', 'malicious_files', 'suspicious_files', 'clean_files', 'not_found_files', 'scan_errors']:
+        merged[category] = [
+            f for f in merged.get(category, [])
+            if f['file_path'] not in new_scanned_files
+        ]
+    
+    # Add all new results
+    for category in ['scanned_files', 'malicious_files', 'suspicious_files', 'clean_files', 'not_found_files', 'scan_errors']:
+        merged.setdefault(category, []).extend(new_vt_results.get(category, []))
+    
+    return merged
+
+def merge_ai_results(existing_ai_results, new_ai_results):
+    """
+    Merge new AI results with existing ones, preserving old analysis
+    """
+    if not existing_ai_results:
+        return new_ai_results
+    
+    if not new_ai_results:
+        return existing_ai_results
+    
+    merged = existing_ai_results.copy()
+    
+    # Update overall metrics with new data
+    merged['total_risk_score'] = new_ai_results.get('total_risk_score', existing_ai_results.get('total_risk_score', 0.0))
+    merged['critical_alerts'] = new_ai_results.get('critical_alerts', [])
+    merged['recommendations'] = new_ai_results.get('recommendations', [])
+    
+    # Track files that have new analysis
+    new_analyzed_files = set()
+    for category in ['high_risk_changes', 'medium_risk_changes', 'low_risk_changes']:
+        for change in new_ai_results.get(category, []):
+            new_analyzed_files.add(change['file_path'])
+    
+    # Remove old entries for files with new analysis
+    for category in ['high_risk_changes', 'medium_risk_changes', 'low_risk_changes']:
+        merged[category] = [
+            change for change in merged.get(category, [])
+            if change['file_path'] not in new_analyzed_files
+        ]
+    
+    # Add new analysis results
+    for category in ['high_risk_changes', 'medium_risk_changes', 'low_risk_changes']:
+        merged.setdefault(category, []).extend(new_ai_results.get(category, []))
+    
+    return merged
+
+def cleanup_deleted_files_from_reports(deleted_files):
+    """
+    Remove deleted files from AI and VT reports to keep them clean
+    """
+    if not deleted_files:
+        return
+    
+    print(f"🧹 Cleaning up {len(deleted_files)} deleted files from reports...")
+    
+    # Clean AI report
+    if os.path.exists(AI_REPORT_PATH):
+        try:
+            with open(AI_REPORT_PATH, "r") as f:
+                ai_results = json.load(f)
+            
+            cleaned = False
+            for category in ['high_risk_changes', 'medium_risk_changes', 'low_risk_changes']:
+                original_count = len(ai_results.get(category, []))
+                ai_results[category] = [
+                    change for change in ai_results.get(category, [])
+                    if change['file_path'] not in deleted_files
+                ]
+                if len(ai_results[category]) < original_count:
+                    cleaned = True
+            
+            if cleaned:
+                with open(AI_REPORT_PATH, "w") as f:
+                    json.dump(ai_results, f, indent=4)
+                print(f"🤖 Cleaned deleted files from AI report")
+                    
+        except Exception as e:
+            print(f"Warning: Could not clean AI report: {e}")
+    
+    # Clean VT report  
+    if os.path.exists(VT_REPORT_PATH):
+        try:
+            with open(VT_REPORT_PATH, "r") as f:
+                vt_results = json.load(f)
+            
+            cleaned = False
+            for category in ['scanned_files', 'malicious_files', 'suspicious_files', 
+                           'clean_files', 'not_found_files', 'scan_errors']:
+                original_count = len(vt_results.get(category, []))
+                vt_results[category] = [
+                    result for result in vt_results.get(category, [])
+                    if result['file_path'] not in deleted_files
+                ]
+                if len(vt_results[category]) < original_count:
+                    cleaned = True
+            
+            if cleaned:
+                with open(VT_REPORT_PATH, "w") as f:
+                    json.dump(vt_results, f, indent=4)
+                print(f"🦠 Cleaned deleted files from VT report")
+                    
+        except Exception as e:
+            print(f"Warning: Could not clean VT report: {e}")
 
 def save_report(modified, deleted, new, ai_results=None, vt_results=None):
+    """
+    Save reports with incremental updates - preserving old scan results
+    """
+    # Save basic file changes report (always replace - this is current state)
     report = {
         "timestamp": datetime.now().isoformat(),
         "modified": modified,
@@ -242,50 +428,98 @@ def save_report(modified, deleted, new, ai_results=None, vt_results=None):
     with open(REPORT_PATH, "w") as f:
         json.dump(report, f, indent=4)
     
-    # Save AI report separately if available
-    if ai_results:
-        with open(AI_REPORT_PATH, "w") as f:
-            json.dump(ai_results, f, indent=4)
+    # Clean up deleted files from historical reports
+    if deleted:
+        cleanup_deleted_files_from_reports(deleted)
     
-    # Save VirusTotal report
+    # Handle AI report with merging
+    if ai_results:
+        existing_ai_results = {}
+        if os.path.exists(AI_REPORT_PATH):
+            try:
+                with open(AI_REPORT_PATH, "r") as f:
+                    existing_ai_results = json.load(f)
+            except Exception as e:
+                print(f"Warning: Could not load existing AI results: {e}")
+        
+        # Merge AI results
+        merged_ai_results = merge_ai_results(existing_ai_results, ai_results)
+        
+        with open(AI_REPORT_PATH, "w") as f:
+            json.dump(merged_ai_results, f, indent=4)
+    
+    # Handle VirusTotal report with merging
     if vt_results:
-        vt_report_path = config.get("vt_report_file", "data/virustotal_report.json")
-        with open(vt_report_path, "w") as f:
-            json.dump(vt_results, f, indent=4)
+        existing_vt_results = {}
+        if os.path.exists(VT_REPORT_PATH):
+            try:
+                with open(VT_REPORT_PATH, "r") as f:
+                    existing_vt_results = json.load(f)
+            except Exception as e:
+                print(f"Warning: Could not load existing VT results: {e}")
+        
+        # Merge VirusTotal results
+        merged_vt_results = merge_vt_results(existing_vt_results, vt_results)
+        
+        with open(VT_REPORT_PATH, "w") as f:
+            json.dump(merged_vt_results, f, indent=4)
     
     print(f"\n📄 Report saved to {REPORT_PATH}")
     if ai_results:
-        print(f"🤖 AI Analysis saved to {AI_REPORT_PATH}")
+        print(f"🤖 AI Analysis merged and saved to {AI_REPORT_PATH}")
     if vt_results:
-        print(f"🦠 VirusTotal Analysis saved to {vt_report_path}")
+        print(f"🦠 VirusTotal Analysis merged and saved to {VT_REPORT_PATH}")
 
-def print_report(modified, deleted, new, ai_results=None, vt_results=None):
-    print("\n📂 Comparison Report:")
-    print("----------------------")
+def print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results=None, vt_results=None):
+    """Enhanced reporting with audit information"""
+    print("\n📂 Enhanced File Integrity Report with Audit Info:")
+    print("=" * 60)
 
-    if not modified and not deleted and not new:
+    if not enhanced_changes:
         print("✅ No changes detected. All files are intact.")
         return
 
-    if modified:
-        print(f"\n✏ Modified files ({len(modified)}):")
-        for f in modified:
-            print(f" - {f}")
+    # Group changes by type
+    modified_changes = [c for c in enhanced_changes if c['change_type'] == 'modified']
+    new_changes = [c for c in enhanced_changes if c['change_type'] == 'new']
+    deleted_changes = [c for c in enhanced_changes if c['change_type'] == 'deleted']
 
-    if deleted:
-        print(f"\n❌ Deleted files ({len(deleted)}):")
-        for f in deleted:
-            print(f" - {f}")
+    if modified_changes:
+        print(f"\n✏️  Modified files ({len(modified_changes)}):")
+        for change in modified_changes:
+            print(f"   📄 {change['file_path']}")
+            print(f"      👤 Modified by: {change['audit_user']}")
+            print(f"      🕐 When: {change['audit_timestamp'] or 'Unknown'}")
+            print(f"      ⚙️  Process: {change['audit_process']}")
+            print(f"      📝 Command: {change['audit_command']}")
+            print(f"      👑 Owner: {change['file_owner']}")
+            print()
 
-    if new:
-        print(f"\n➕ New files ({len(new)}):")
-        for f in new:
-            print(f" - {f}")
-    
+    if new_changes:
+        print(f"\n➕ New files ({len(new_changes)}):")
+        for change in new_changes:
+            print(f"   📄 {change['file_path']}")
+            print(f"      👤 Created by: {change['audit_user']}")
+            print(f"      🕐 When: {change['audit_timestamp'] or 'Unknown'}")
+            print(f"      ⚙️  Process: {change['audit_process']}")
+            print(f"      📝 Command: {change['audit_command']}")
+            print(f"      👑 Owner: {change['file_owner']}")
+            print()
+
+    if deleted_changes:
+        print(f"\n❌ Deleted files ({len(deleted_changes)}):")
+        for change in deleted_changes:
+            print(f"   📄 {change['file_path']}")
+            print(f"      👤 Deleted by: {change['audit_user']}")
+            print(f"      🕐 When: {change['audit_timestamp'] or 'Unknown'}")
+            print(f"      ⚙️  Process: {change['audit_process']}")
+            print(f"      📝 Command: {change['audit_command']}")
+            print()
+
     # Print AI analysis if available
     if ai_results:
         print("\n🤖 AI Risk Analysis:")
-        print("=====================")
+        print("=" * 25)
         print(f"Overall Risk Score: {ai_results['total_risk_score']:.3f}")
         
         if ai_results['critical_alerts']:
@@ -295,7 +529,7 @@ def print_report(modified, deleted, new, ai_results=None, vt_results=None):
         
         if ai_results['high_risk_changes']:
             print(f"\n⚠️  High Risk Changes ({len(ai_results['high_risk_changes'])}):")
-            for change in ai_results['high_risk_changes'][:5]:
+            for change in ai_results['high_risk_changes'][:3]:
                 print(f"   {change['file_path']} - Risk: {change['risk_score']:.3f} ({change['risk_level']})")
         
         if ai_results['recommendations']:
@@ -306,17 +540,16 @@ def print_report(modified, deleted, new, ai_results=None, vt_results=None):
     # Print VirusTotal analysis if available
     if vt_results:
         print("\n🦠 VirusTotal Analysis:")
-        print("=======================")
+        print("=" * 25)
         
         total_scanned = len(vt_results['scanned_files'])
         malicious_count = len(vt_results['malicious_files'])
         suspicious_count = len(vt_results['suspicious_files'])
         clean_count = len(vt_results['clean_files'])
         not_found_count = len(vt_results['not_found_files'])
-        error_count = len(vt_results['scan_errors'])
         
         if total_scanned > 0:
-            print(f"Total files scanned: {total_scanned}")
+            print(f"New files scanned this round: {total_scanned}")
             
             if malicious_count > 0:
                 print(f"\n🚨 MALWARE DETECTED ({malicious_count} files):")
@@ -329,21 +562,15 @@ def print_report(modified, deleted, new, ai_results=None, vt_results=None):
                     print(f"   {suspicious['file_path']} - {suspicious.get('suspicious', 0)} engines")
             
             if clean_count > 0:
-                print(f"\n✅ Clean files: {clean_count}")
+                print(f"\n✅ Clean files this round: {clean_count}")
             
             if not_found_count > 0:
                 print(f"\n❓ Unknown files (not in VT database): {not_found_count}")
-                for unknown in vt_results['not_found_files'][:3]:
-                    print(f"   {unknown['file_path']}")
-            
-            if error_count > 0:
-                print(f"\n❌ Scan errors: {error_count}")
         else:
-            print("No files were scanned")
+            print("No new files were scanned this round")
 
-
-def send_ai_enhanced_alert(modified, deleted, new, ai_results, vt_results, current_config):
-    """Send enhanced email alert with AI risk analysis and VirusTotal results"""
+def send_ai_enhanced_alert(modified, deleted, new, enhanced_changes, ai_results, vt_results, current_config):
+    """Send enhanced email alert with AI risk analysis, VirusTotal results, and audit information"""
     if not current_config.get("email_alert"):
         return
     
@@ -359,11 +586,11 @@ def send_ai_enhanced_alert(modified, deleted, new, ai_results, vt_results, curre
     if not should_alert:
         return
     
-    # Compose enhanced email body
-    body = "🤖 AI-Enhanced File Integrity Monitoring Alert\n\n"
+    # Compose enhanced email body with audit information
+    body = "🕵️ Enhanced File Integrity Monitoring Alert with Audit Trail\n\n"
     
     if ai_results:
-        body += f"Overall Risk Assessment: {ai_results['total_risk_score']:.3f}\n\n"
+        body += f"🤖 AI Risk Assessment: {ai_results['total_risk_score']:.3f}\n\n"
     
     # VirusTotal alerts first (highest priority)
     if vt_results and vt_results['malicious_files']:
@@ -380,39 +607,26 @@ def send_ai_enhanced_alert(modified, deleted, new, ai_results, vt_results, curre
             body += f"  • {alert}\n"
         body += "\n"
     
-    if modified:
-        body += "Modified files:\n"
-        for f in modified:
-            # Find AI analysis for this file
-            risk_info = ""
+    # Enhanced file change information with audit data
+    if enhanced_changes:
+        for change in enhanced_changes:
+            change_type = change['change_type'].upper()
+            body += f"{change_type}: {change['file_path']}\n"
+            body += f"   👤 User: {change['audit_user']}\n"
+            body += f"   🕐 Time: {change['audit_timestamp'] or 'Unknown'}\n"
+            body += f"   ⚙️  Process: {change['audit_process']}\n"
+            body += f"   📝 Command: {change['audit_command']}\n"
+            if change['change_type'] != 'deleted':
+                body += f"   👑 Owner: {change['file_owner']}\n"
+            
+            # Add AI risk info if available
             if ai_results:
-                file_analysis = next((c for c in ai_results['high_risk_changes'] + ai_results['medium_risk_changes'] + ai_results['low_risk_changes'] 
-                                    if c['file_path'] == f), None)
-                risk_info = f" [Risk: {file_analysis['risk_score']:.3f}]" if file_analysis else ""
-            body += f"  - {f}{risk_info}\n"
-        body += "\n"
-
-    if deleted:
-        body += "Deleted files:\n"
-        for f in deleted:
-            risk_info = ""
-            if ai_results:
-                file_analysis = next((c for c in ai_results['high_risk_changes'] + ai_results['medium_risk_changes'] + ai_results['low_risk_changes'] 
-                                    if c['file_path'] == f), None)
-                risk_info = f" [Risk: {file_analysis['risk_score']:.3f}]" if file_analysis else ""
-            body += f"  - {f}{risk_info}\n"
-        body += "\n"
-
-    if new:
-        body += "New files:\n"
-        for f in new:
-            risk_info = ""
-            if ai_results:
-                file_analysis = next((c for c in ai_results['high_risk_changes'] + ai_results['medium_risk_changes'] + ai_results['low_risk_changes'] 
-                                    if c['file_path'] == f), None)
-                risk_info = f" [Risk: {file_analysis['risk_score']:.3f}]" if file_analysis else ""
-            body += f"  - {f}{risk_info}\n"
-        body += "\n"
+                for category in ['high_risk_changes', 'medium_risk_changes', 'low_risk_changes']:
+                    for ai_change in ai_results.get(category, []):
+                        if ai_change['file_path'] == change['file_path']:
+                            body += f"   🤖 AI Risk: {ai_change['risk_score']:.3f} ({ai_change['risk_level']})\n"
+                            break
+            body += "\n"
     
     if ai_results and ai_results['recommendations']:
         body += "💡 AI Recommendations:\n"
@@ -426,6 +640,15 @@ def main():
         print("Invalid directory.")
         return
 
+    # NEW: Check and setup audit system
+    print("🔍 Checking audit system...")
+    audit_status = check_audit_system()
+    print(f"Audit Status: {audit_status['message']}")
+    
+    if audit_status['status'] in ['not_running', 'no_rules']:
+        print("🔧 Setting up audit rules...")
+        setup_audit_rules()
+
     baseline = load_baseline()
     if baseline is None:
         return
@@ -435,7 +658,7 @@ def main():
     if AI_ENABLED:
         try:
             ai_scorer = AIRiskScorer()
-            ai_scorer.load_model()  # Try to load existing model
+            ai_scorer.load_model()
             print("🤖 AI Risk Scoring enabled")
         except Exception as e:
             print(f"⚠️  AI Risk Scoring initialization failed: {e}")
@@ -448,43 +671,47 @@ def main():
     audio_last_deleted = set()
     audio_last_new = set()
 
-    print(f"🕵 Starting AI-enhanced periodic scan every {SCAN_INTERVAL} seconds...\n(Press Ctrl+C to stop)\n")
+    print(f"🕵️  Starting enhanced audit-integrated scan every {SCAN_INTERVAL} seconds...")
+    print("(Press Ctrl+C to stop)\n")
     
     try:
         while True:
             # Reload config each iteration to pick up GUI changes
             current_config = load_config()
+
             current_state = scan_current_state(MONITOR_PATH)
             modified, deleted, new = compare_states(baseline, current_state)
             
             # Initialize results
             ai_results = None
             vt_results = None
+            enhanced_changes = []
             
-            # Process changes if any exist
+            # Only process if there are changes
             if modified or deleted or new:
+                # NEW: Enhance changes with audit information
+                enhanced_changes = enhance_changes_with_audit_info(modified, deleted, new, current_state)
                 
-                # 1. FIRST - Perform AI analysis if enabled
+                # Perform AI analysis if enabled
                 if ai_scorer:
                     changes_dict = {'modified': modified, 'deleted': deleted, 'new': new}
                     ai_results = analyze_with_ai(changes_dict, current_state, ai_scorer)
                 
-                # 2. SECOND - Perform VirusTotal analysis (independent of AI)
-                print("🦠 Starting VirusTotal analysis...")  # Debug line
-                vt_results = analyze_with_virustotal(modified, new, deleted, current_state)
-                print("🦠 VirusTotal analysis completed")  # Debug line
+                # Perform VirusTotal analysis (only on new and modified files)
+                if modified or new:
+                    vt_results = analyze_with_virustotal(modified, new, [], current_state)
             
-            # 3. THIRD - Print the complete report with all results
-            print_report(modified, deleted, new, ai_results, vt_results)
+            # Print enhanced report with audit info
+            print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results, vt_results)
             save_report(modified, deleted, new, ai_results, vt_results)
 
             current_modified = set(modified)
             current_deleted = set(deleted)
             current_new = set(new)
 
-            # Send enhanced alerts with AI analysis and VirusTotal results
-            if ai_results or vt_results:
-                send_ai_enhanced_alert(modified, deleted, new, ai_results, vt_results, current_config)
+            # Send enhanced alerts with audit information
+            if enhanced_changes and (ai_results or vt_results):
+                send_ai_enhanced_alert(modified, deleted, new, enhanced_changes, ai_results, vt_results, current_config)
             elif current_config.get("email_alert"):
                 # Fallback to traditional alerting
                 if(current_modified != last_modified or
@@ -518,8 +745,6 @@ def main():
 
     except KeyboardInterrupt:
         print("\nMonitoring stopped by user.")
-
-
 
 if __name__ == "__main__":
     main()
