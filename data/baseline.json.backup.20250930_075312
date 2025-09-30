@@ -1,0 +1,16 @@
+{
+    "ransom.txt": {
+        "hash": "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631",
+        "size": 4,
+        "last_modified": "Tue Sep 30 07:47:37 2025",
+        "created_time": "Tue Sep 30 07:47:37 2025",
+        "permissions": "644",
+        "owner": "root",
+        "audit": {
+            "last_modified_by": "UID:4294967295",
+            "modification_time": "2025-09-30 07:47:37",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    }
+}

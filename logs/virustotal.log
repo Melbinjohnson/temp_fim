@@ -724,3 +724,43 @@
 2025-09-29 23:39:27,503 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
 2025-09-29 23:39:37,534 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
 2025-09-29 23:39:38,184 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-29 23:58:48,675 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-29 23:58:49,955 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-30 00:03:43,293 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 00:03:43,903 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-30 07:38:32,154 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:38:32,822 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "93afcdb21449c8f4bb4c68e94814c9152704247db7b2924ec120ea5eb57c9ccb" not found
+2025-09-30 07:38:33,334 - VirusTotalIntegration - INFO - VirusTotal scan result for 131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267: 61 malicious
+2025-09-30 07:40:18,133 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:40:18,806 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "93afcdb21449c8f4bb4c68e94814c9152704247db7b2924ec120ea5eb57c9ccb" not found
+2025-09-30 07:40:19,516 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "12bac23015e9b9a18460d5873582a00a7ee0576e9280dcfa6c60582bd7ca7972" not found
+2025-09-30 07:40:20,030 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "229b94e57f0951fe63f813f505a722dad656ba76ab9bdceb42f3d12b186c5289" not found
+2025-09-30 07:40:20,957 - VirusTotalIntegration - INFO - VirusTotal scan result for e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855: 0 malicious
+2025-09-30 07:46:57,018 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:46:57,655 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
+2025-09-30 07:47:29,931 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:47:30,525 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
+2025-09-30 07:48:15,456 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:48:15,988 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631" not found
+2025-09-30 07:48:16,708 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
+2025-09-30 07:49:01,940 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:49:02,787 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631" not found
+2025-09-30 07:49:04,324 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
+2025-09-30 07:49:49,994 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:49:50,908 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631" not found
+2025-09-30 07:49:51,409 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
+2025-09-30 07:50:36,294 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:50:36,894 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631" not found
+2025-09-30 07:50:37,508 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
+2025-09-30 07:51:22,949 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:51:23,451 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631" not found
+2025-09-30 07:51:24,101 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
+2025-09-30 07:52:08,959 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:52:09,669 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631" not found
+2025-09-30 07:52:10,177 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
+2025-09-30 07:52:55,438 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:52:55,952 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631" not found
+2025-09-30 07:52:57,591 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
+2025-09-30 07:53:43,101 - VirusTotalIntegration - INFO - VirusTotal API initialized successfully
+2025-09-30 07:53:43,585 - VirusTotalIntegration - ERROR - VirusTotal API request failed: Error NotFoundError (404): File "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631" not found
+2025-09-30 07:53:44,183 - VirusTotalIntegration - INFO - VirusTotal scan result for f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2: 1 malicious
