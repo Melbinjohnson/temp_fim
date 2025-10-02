@@ -21,6 +21,6 @@
     "virustotal_enabled": true,
     "virustotal_api_key": "682f7e00f18d33d726a5a6c7c90b3764eca0e9d34e885ff5536ac582faa5c559",
     "virustotal_scan_new_files": true,
-    "virustotal_scan_modified_files": false,
+    "virustotal_scan_modified_files": true,
     "virustotal_auto_scan": false
 }

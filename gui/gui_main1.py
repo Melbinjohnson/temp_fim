@@ -7,6 +7,8 @@ import seaborn as sns
 import numpy as np
 import tkinter as tk
 from tkinter import ttk, messagebox
+from datetime import datetime
+
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.config_loader import load_config, save_config
@@ -282,6 +284,85 @@ class PremiumDashboard(ctk.CTk):
         self.bar_canvas.get_tk_widget().pack(padx=10, pady=(10, 15))
 
         return frame
+
+    def get_user_for_file(self, file_path, change_type='modified'):
+        """Get user information for a file using the same methods as monitor.py"""
+        try:
+            # Import the audit functions
+            from utils.audit_utils import get_file_audit_info
+            
+            # Convert relative path to full path if needed
+            config = load_config()
+            if not os.path.isabs(file_path):
+                full_path = os.path.join(config["monitor_path"], file_path)
+            else:
+                full_path = file_path
+            
+            # Try to get audit information
+            audit_info = get_file_audit_info(full_path, change_type)
+            user = audit_info.get('user', 'Unknown')
+            
+            if user == 'Unknown' or not user:
+                # Try to get file owner as fallback
+                try:
+                    import pwd
+                    if os.path.exists(full_path):
+                        stat_info = os.stat(full_path)
+                        user = pwd.getpwuid(stat_info.st_uid).pw_name + "*"
+                except:
+                    pass
+            
+            if user == 'Unknown' or not user:
+                # Final fallback - get current user
+                import getpass
+                try:
+                    user = getpass.getuser() + "?"
+                except:
+                    user = "system?"
+            
+            # Clean up user display
+            if user.endswith('*'):
+                user = f"{user[:-1]} (owner)"
+            elif user.endswith('?'):
+                user = f"{user[:-1]} (detected)"
+            
+            return user
+            
+        except Exception as e:
+            print(f"Error getting user for {file_path}: {e}")
+            return "Unknown"
+
+    def get_enhanced_changes_for_gui(self, report):
+        """Get enhanced changes with proper user information"""
+        enhanced_changes = {}
+        
+        try:
+            # Process each change type
+            for change_type in ['modified', 'new', 'deleted']:
+                files = report.get(change_type, [])
+                for file_path in files:
+                    try:
+                        # Get real user information
+                        user_info = self.get_user_for_file(file_path, change_type)
+                        
+                        enhanced_changes[file_path] = {
+                            'change_type': change_type,
+                            'user': user_info,
+                            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                        }
+                    except Exception as e:
+                        print(f"Error processing {file_path}: {e}")
+                        enhanced_changes[file_path] = {
+                            'change_type': change_type,
+                            'user': 'Error',
+                            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                        }
+            
+        except Exception as e:
+            print(f"Error getting enhanced changes: {e}")
+        
+        return enhanced_changes
+
 
     def on_table_double_click(self, event):
         """Handle double-click on table row to verify/update baseline"""
@@ -780,7 +861,9 @@ class PremiumDashboard(ctk.CTk):
 
     # ------ Main Update Function ------
     def update_gui(self):
-        """Main GUI update function with enhanced styling"""
+        """Main GUI update function with enhanced styling and proper user display"""
+        from datetime import datetime
+        
         report = read_report()
         ai_report = read_ai_report()
         vt_report = read_vt_report()
@@ -823,7 +906,7 @@ class PremiumDashboard(ctk.CTk):
         self.lbl_ai_score.configure(text_color=risk_color)
         self.lbl_ai_status.configure(text=status_text, text_color=risk_color)
 
-        # ----- VirusTotal dashboard -----
+        # VirusTotal status
         if CONFIG.get("virustotal_enabled", False):
             vt_malicious = len(vt_report.get("malicious_files", []))
             vt_suspicious = len(vt_report.get("suspicious_files", []))
@@ -841,14 +924,17 @@ class PremiumDashboard(ctk.CTk):
             vt_text = "VT: Disabled"
         self.lbl_vt_status.configure(text=vt_text, text_color=vt_color)
 
-        # Update table with enhanced styling including USER column (CHANGED)
+        # FIXED: Get enhanced changes with real user information
+        enhanced_changes = self.get_enhanced_changes_for_gui(report)
+
+        # Update table with proper user information
         for item in self.change_tree.get_children():
             self.change_tree.delete(item)
         
         # Clear stored file data
         self.file_data.clear()
         
-        # Add changes with color coding
+        # Process AI changes with REAL user information
         all_changes = []
         for change in ai_report.get("high_risk_changes", []):
             all_changes.append((change, "high_risk"))
@@ -878,16 +964,21 @@ class PremiumDashboard(ctk.CTk):
                         vt_status = "✅ Clean"
                     break
             
-            # CHANGED: Show actual user instead of "Double-Click"
-            user_display = f"👤 {change.get('audit_user', 'Unknown')}"
+            # FIXED: Get REAL user information (not filename!)
+            enhanced_change = enhanced_changes.get(file_path)
+            if enhanced_change:
+                real_user = enhanced_change['user']
+            else:
+                # Fallback: get user info right now
+                real_user = self.get_user_for_file(file_path, change.get("change_type", "modified"))
             
             self.change_tree.insert("", "end", values=(
-                display_path,
-                change.get("change_type", "").title(),
-                change.get("risk_level", ""),
-                f"{change.get('risk_score', 0):.3f}",
-                vt_status,
-                user_display  # NEW: Show actual user who made the change
+                display_path,                              # File
+                change.get("change_type", "").title(),     # Type
+                change.get("risk_level", ""),              # Risk
+                f"{change.get('risk_score', 0):.3f}",     # Score
+                vt_status,                                 # VT Status
+                real_user                                  # USER (REAL USERNAME!)
             ), tags=(tag,))
 
         # Update enhanced charts
@@ -930,3 +1021,4 @@ class PremiumDashboard(ctk.CTk):
 if __name__ == "__main__":
     app = PremiumDashboard()
     app.mainloop()
+

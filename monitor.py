@@ -5,9 +5,12 @@ from datetime import datetime
 from utils.file_utils import get_file_metadata
 from utils.config_loader import load_config
 from utils.email_alert import send_email_alert, play_beep
-from utils.audit_utils import get_file_audit_info, check_audit_system, setup_audit_rules
+from utils.audit_utils import get_file_audit_info, check_audit_system, setup_audit_rules, get_current_user, get_last_modifier_advanced
 from ai_modules.risk_scorer import AIRiskScorer
 from utils.virus_total import check_file_hash_vt, vt_integration, set_vt_api_key
+from utils.audit_utils import get_file_audit_info, check_audit_system, setup_audit_rules
+import getpass
+
 
 config = load_config()
 
@@ -20,6 +23,30 @@ exclude = config["exclude"]
 SCAN_INTERVAL = config.get("scan_interval", 10)
 AI_ENABLED = config.get("ai_risk_scoring", True)
 
+def get_current_user():
+    """Get current user as fallback"""
+    try:
+        for env_var in ['SUDO_USER', 'USER', 'USERNAME', 'LOGNAME']:
+            user = os.environ.get(env_var)
+            if user and user != 'root':
+                return user
+        return getpass.getuser()
+    except:
+        return "system"
+
+def get_last_modifier_advanced(file_path):
+    """Simple fallback for user detection"""
+    try:
+        # Try to get file owner
+        import pwd
+        import stat
+        if os.path.exists(file_path):
+            stat_info = os.stat(file_path)
+            return pwd.getpwuid(stat_info.st_uid).pw_name + "*"
+    except:
+        pass
+    return get_current_user() + "?"
+
 def is_excluded(path):
     return any(excluded in path for excluded in exclude)
 
@@ -29,7 +56,14 @@ def load_baseline():
         return None
 
     with open(BASELINE_PATH, "r") as f:
-        return json.load(f)
+        baseline_data = json.load(f)
+        
+    # Handle new format with metadata
+    if isinstance(baseline_data, dict) and "files" in baseline_data:
+        return baseline_data["files"]
+    else:
+        # Legacy format
+        return baseline_data
 
 def scan_current_state(directory):
     current_data = {}
@@ -67,72 +101,98 @@ def compare_states(baseline, current):
     return modified, deleted, new
 
 def enhance_changes_with_audit_info(modified, deleted, new, current_state):
-    """Enhance detected changes with audit information"""
+    """Enhanced version with better user detection and multiple fallbacks"""
     enhanced_changes = []
+    
+    print("🔍 Enhancing changes with audit information...")
     
     # Process modified files
     for file_path in modified:
+        print(f"  📄 Analyzing modified: {file_path}")
+        
+        # Get comprehensive audit info
         audit_info = get_file_audit_info(file_path, "modified")
         metadata = current_state.get(file_path, {})
+        
+        # Enhanced user detection with multiple fallbacks
+        detected_user = audit_info.get('user', 'Unknown')
+        if detected_user == 'Unknown' or not detected_user:
+            # Fallback 1: Try advanced detection
+            detected_user = get_last_modifier_advanced(file_path)
+            if detected_user == 'Unknown':
+                # Fallback 2: Use file owner
+                detected_user = metadata.get('owner', get_current_user())
         
         enhanced_changes.append({
             'file_path': file_path,
             'change_type': 'modified',
-            'audit_user': audit_info.get('user', 'Unknown'),
-            'audit_timestamp': audit_info.get('timestamp'),
+            'audit_user': detected_user,
+            'audit_timestamp': audit_info.get('timestamp', datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
             'audit_process': audit_info.get('process', 'Unknown'),
             'audit_command': audit_info.get('command', 'Unknown'),
             'file_owner': metadata.get('owner', 'Unknown'),
             'file_size': metadata.get('size', 0),
             'last_modified': metadata.get('last_modified', 'Unknown')
         })
+        print(f"    👤 User detected: {detected_user}")
     
     # Process new files
     for file_path in new:
+        print(f"  📄 Analyzing new: {file_path}")
+        
         audit_info = get_file_audit_info(file_path, "created")
         metadata = current_state.get(file_path, {})
+        
+        # Enhanced user detection
+        detected_user = audit_info.get('user', 'Unknown')
+        if detected_user == 'Unknown' or not detected_user:
+            detected_user = get_last_modifier_advanced(file_path)
+            if detected_user == 'Unknown':
+                detected_user = metadata.get('owner', get_current_user())
         
         enhanced_changes.append({
             'file_path': file_path,
             'change_type': 'new',
-            'audit_user': audit_info.get('user', 'Unknown'),
-            'audit_timestamp': audit_info.get('timestamp'),
+            'audit_user': detected_user,
+            'audit_timestamp': audit_info.get('timestamp', datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
             'audit_process': audit_info.get('process', 'Unknown'),
             'audit_command': audit_info.get('command', 'Unknown'),
             'file_owner': metadata.get('owner', 'Unknown'),
             'file_size': metadata.get('size', 0),
             'last_modified': metadata.get('last_modified', 'Unknown')
         })
+        print(f"    👤 User detected: {detected_user}")
     
     # Process deleted files
     for file_path in deleted:
+        print(f"  📄 Analyzing deleted: {file_path}")
+        
         audit_info = get_file_audit_info(file_path, "deleted")
+        
+        # For deleted files, rely more on audit logs and current user
+        detected_user = audit_info.get('user', 'Unknown')
+        if detected_user == 'Unknown' or not detected_user:
+            detected_user = get_current_user()
         
         enhanced_changes.append({
             'file_path': file_path,
             'change_type': 'deleted',
-            'audit_user': audit_info.get('user', 'Unknown'),
-            'audit_timestamp': audit_info.get('timestamp'),
+            'audit_user': detected_user,
+            'audit_timestamp': audit_info.get('timestamp', datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
             'audit_process': audit_info.get('process', 'Unknown'),
             'audit_command': audit_info.get('command', 'Unknown'),
             'file_owner': 'N/A',
             'file_size': 0,
             'last_modified': 'N/A'
         })
+        print(f"    👤 User detected: {detected_user}")
     
+    print(f"✅ Enhanced {len(enhanced_changes)} changes with user information")
     return enhanced_changes
 
-def analyze_with_ai(changes_dict, current_data, ai_scorer):
+def analyze_with_ai(changes_dict, current_data, ai_scorer, enhanced_changes=None, vt_results=None):
     """
-    Analyze file changes using AI risk scoring
-    
-    Args:
-        changes_dict: Dictionary with 'modified', 'deleted', 'new' lists
-        current_data: Current file metadata
-        ai_scorer: AIRiskScorer instance
-        
-    Returns:
-        Dictionary with AI analysis results
+    Analyze file changes using AI risk scoring with VirusTotal integration
     """
     ai_results = {
         'high_risk_changes': [],
@@ -145,18 +205,40 @@ def analyze_with_ai(changes_dict, current_data, ai_scorer):
     
     all_changes = []
     
-    # Process all types of changes
     for change_type in ['modified', 'deleted', 'new']:
         for file_path in changes_dict[change_type]:
-            # Get metadata for the file
             if change_type == 'deleted':
-                metadata = {'size': 0, 'permissions': '000'}  # Placeholder for deleted files
+                metadata = {'size': 0, 'permissions': '000'}
             else:
                 full_path = os.path.join(MONITOR_PATH, file_path)
                 metadata = get_file_metadata(full_path) or {}
             
-            # Analyze with AI
-            analysis = ai_scorer.analyze_file_change(file_path, change_type, metadata)
+            # Find VT results for this specific file
+            file_vt_result = None
+            if vt_results:
+                for category in ['malicious_files', 'suspicious_files', 'clean_files', 'not_found_files']:
+                    for vt_file in vt_results.get(category, []):
+                        if vt_file.get('file_path') == file_path:
+                            file_vt_result = vt_file
+                            break
+                    if file_vt_result:
+                        break
+            
+            # NEW: Pass VT results to AI analysis
+            analysis = ai_scorer.analyze_file_change(file_path, change_type, metadata, file_vt_result)
+            
+            # Enhance with audit information if available
+            if enhanced_changes:
+                for enhanced_change in enhanced_changes:
+                    if enhanced_change['file_path'] == file_path:
+                        analysis.update({
+                            'audit_user': enhanced_change.get('audit_user', 'Unknown'),
+                            'audit_timestamp': enhanced_change.get('audit_timestamp'),
+                            'audit_process': enhanced_change.get('audit_process', 'Unknown'),
+                            'audit_command': enhanced_change.get('audit_command', 'Unknown')
+                        })
+                        break
+            
             all_changes.append(analysis)
             
             # Categorize by risk level
@@ -174,6 +256,12 @@ def analyze_with_ai(changes_dict, current_data, ai_scorer):
     # Calculate overall risk score
     if all_changes:
         ai_results['total_risk_score'] = sum(change['risk_score'] for change in all_changes) / len(all_changes)
+    
+    # Enhanced recommendations for malware detection
+    malware_detected = any(change.get('features', {}).get('vt_is_malicious', 0) == 1 for change in all_changes)
+    if malware_detected:
+        ai_results['recommendations'].insert(0, "🚨 MALWARE DETECTED - IMMEDIATE SYSTEM ISOLATION REQUIRED")
+        ai_results['critical_alerts'].insert(0, "MALWARE ALERT: Malicious files detected by VirusTotal")
     
     # Generate overall recommendations
     if ai_results['high_risk_changes']:
@@ -471,9 +559,9 @@ def save_report(modified, deleted, new, ai_results=None, vt_results=None):
         print(f"🦠 VirusTotal Analysis merged and saved to {VT_REPORT_PATH}")
 
 def print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results=None, vt_results=None):
-    """Enhanced reporting with audit information"""
-    print("\n📂 Enhanced File Integrity Report with Audit Info:")
-    print("=" * 60)
+    """Enhanced reporting with audit information and better user display"""
+    print("\n📂 Enhanced File Integrity Report with User Tracking:")
+    print("=" * 65)
 
     if not enhanced_changes:
         print("✅ No changes detected. All files are intact.")
@@ -487,9 +575,16 @@ def print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results
     if modified_changes:
         print(f"\n✏️  Modified files ({len(modified_changes)}):")
         for change in modified_changes:
+            user_display = change['audit_user']
+            # Clean up user display
+            if user_display.endswith('*'):
+                user_display = f"{user_display[:-1]} (owner)"
+            elif user_display.endswith('?'):
+                user_display = f"{user_display[:-1]} (detected)"
+            
             print(f"   📄 {change['file_path']}")
-            print(f"      👤 Modified by: {change['audit_user']}")
-            print(f"      🕐 When: {change['audit_timestamp'] or 'Unknown'}")
+            print(f"      👤 Modified by: {user_display}")
+            print(f"      🕐 When: {change['audit_timestamp']}")
             print(f"      ⚙️  Process: {change['audit_process']}")
             print(f"      📝 Command: {change['audit_command']}")
             print(f"      👑 Owner: {change['file_owner']}")
@@ -498,9 +593,15 @@ def print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results
     if new_changes:
         print(f"\n➕ New files ({len(new_changes)}):")
         for change in new_changes:
+            user_display = change['audit_user']
+            if user_display.endswith('*'):
+                user_display = f"{user_display[:-1]} (owner)"
+            elif user_display.endswith('?'):
+                user_display = f"{user_display[:-1]} (detected)"
+                
             print(f"   📄 {change['file_path']}")
-            print(f"      👤 Created by: {change['audit_user']}")
-            print(f"      🕐 When: {change['audit_timestamp'] or 'Unknown'}")
+            print(f"      👤 Created by: {user_display}")
+            print(f"      🕐 When: {change['audit_timestamp']}")
             print(f"      ⚙️  Process: {change['audit_process']}")
             print(f"      📝 Command: {change['audit_command']}")
             print(f"      👑 Owner: {change['file_owner']}")
@@ -509,9 +610,15 @@ def print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results
     if deleted_changes:
         print(f"\n❌ Deleted files ({len(deleted_changes)}):")
         for change in deleted_changes:
+            user_display = change['audit_user']
+            if user_display.endswith('*'):
+                user_display = f"{user_display[:-1]} (owner)"
+            elif user_display.endswith('?'):
+                user_display = f"{user_display[:-1]} (detected)"
+                
             print(f"   📄 {change['file_path']}")
-            print(f"      👤 Deleted by: {change['audit_user']}")
-            print(f"      🕐 When: {change['audit_timestamp'] or 'Unknown'}")
+            print(f"      👤 Deleted by: {user_display}")
+            print(f"      🕐 When: {change['audit_timestamp']}")
             print(f"      ⚙️  Process: {change['audit_process']}")
             print(f"      📝 Command: {change['audit_command']}")
             print()
@@ -529,8 +636,14 @@ def print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results
         
         if ai_results['high_risk_changes']:
             print(f"\n⚠️  High Risk Changes ({len(ai_results['high_risk_changes'])}):")
-            for change in ai_results['high_risk_changes'][:3]:
-                print(f"   {change['file_path']} - Risk: {change['risk_score']:.3f} ({change['risk_level']})")
+            for change in ai_results['high_risk_changes'][:5]:
+                user_info = change.get('audit_user', 'Unknown')
+                vt_info = ""
+                if change.get('features', {}).get('vt_is_malicious', 0) == 1:
+                    vt_info = " 🦠 MALWARE"
+                elif change.get('features', {}).get('vt_is_suspicious', 0) == 1:
+                    vt_info = " ⚠️ SUSPICIOUS"
+                print(f"   {change['file_path']} - Risk: {change['risk_score']:.3f} ({change['risk_level']}) - User: {user_info}{vt_info}")
         
         if ai_results['recommendations']:
             print("\n💡 Recommendations:")
@@ -570,7 +683,7 @@ def print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results
             print("No new files were scanned this round")
 
 def send_ai_enhanced_alert(modified, deleted, new, enhanced_changes, ai_results, vt_results, current_config):
-    """Send enhanced email alert with AI risk analysis, VirusTotal results, and audit information"""
+    """Send enhanced email alert with AI risk analysis, VirusTotal results, and user audit information"""
     if not current_config.get("email_alert"):
         return
     
@@ -587,7 +700,7 @@ def send_ai_enhanced_alert(modified, deleted, new, enhanced_changes, ai_results,
         return
     
     # Compose enhanced email body with audit information
-    body = "🕵️ Enhanced File Integrity Monitoring Alert with Audit Trail\n\n"
+    body = "🕵️ Enhanced File Integrity Monitoring Alert with User Tracking & Malware Detection\n\n"
     
     if ai_results:
         body += f"🤖 AI Risk Assessment: {ai_results['total_risk_score']:.3f}\n\n"
@@ -607,13 +720,21 @@ def send_ai_enhanced_alert(modified, deleted, new, enhanced_changes, ai_results,
             body += f"  • {alert}\n"
         body += "\n"
     
-    # Enhanced file change information with audit data
+    # Enhanced file change information with user audit data
     if enhanced_changes:
         for change in enhanced_changes:
             change_type = change['change_type'].upper()
+            user_display = change['audit_user']
+            
+            # Clean up user display for email
+            if user_display.endswith('*'):
+                user_display = f"{user_display[:-1]} (file owner)"
+            elif user_display.endswith('?'):
+                user_display = f"{user_display[:-1]} (detected user)"
+            
             body += f"{change_type}: {change['file_path']}\n"
-            body += f"   👤 User: {change['audit_user']}\n"
-            body += f"   🕐 Time: {change['audit_timestamp'] or 'Unknown'}\n"
+            body += f"   👤 User: {user_display}\n"
+            body += f"   🕐 Time: {change['audit_timestamp']}\n"
             body += f"   ⚙️  Process: {change['audit_process']}\n"
             body += f"   📝 Command: {change['audit_command']}\n"
             if change['change_type'] != 'deleted':
@@ -625,6 +746,11 @@ def send_ai_enhanced_alert(modified, deleted, new, enhanced_changes, ai_results,
                     for ai_change in ai_results.get(category, []):
                         if ai_change['file_path'] == change['file_path']:
                             body += f"   🤖 AI Risk: {ai_change['risk_score']:.3f} ({ai_change['risk_level']})\n"
+                            # Add VirusTotal info
+                            if ai_change.get('features', {}).get('vt_is_malicious', 0) == 1:
+                                body += f"   🦠 VirusTotal: MALWARE DETECTED\n"
+                            elif ai_change.get('features', {}).get('vt_is_suspicious', 0) == 1:
+                                body += f"   ⚠️  VirusTotal: SUSPICIOUS\n"
                             break
             body += "\n"
     
@@ -635,19 +761,52 @@ def send_ai_enhanced_alert(modified, deleted, new, enhanced_changes, ai_results,
 
     send_email_alert(body.strip())
 
+def debug_user_detection(file_path):
+    """Debug user detection for a specific file"""
+    print(f"\n🔍 DEBUG: User detection for {file_path}")
+    print("-" * 50)
+    
+    from utils.audit_utils import (
+        get_real_user, get_last_modifier_advanced, 
+        get_file_audit_info, get_file_owner_info
+    )
+    
+    # Check real user
+    real_user = get_real_user()
+    print(f"Real user: {real_user}")
+    
+    # Check file owner
+    owner_info = get_file_owner_info(file_path)
+    print(f"File owner info: {owner_info}")
+    
+    # Check advanced detection
+    advanced_user = get_last_modifier_advanced(file_path)
+    print(f"Advanced detection: {advanced_user}")
+    
+    # Check audit info
+    audit_info = get_file_audit_info(file_path, "modified")
+    print(f"Audit info: {audit_info}")
+    
+    print("-" * 50)
+
+
 def main():
     if not os.path.isdir(MONITOR_PATH):
         print("Invalid directory.")
         return
 
-    # NEW: Check and setup audit system
-    print("🔍 Checking audit system...")
+    # Enhanced audit system check and setup
+    print("🔍 Checking user detection and audit system...")
     audit_status = check_audit_system()
     print(f"Audit Status: {audit_status['message']}")
     
-    if audit_status['status'] in ['not_running', 'no_rules']:
-        print("🔧 Setting up audit rules...")
-        setup_audit_rules()
+    if audit_status['status'] in ['not_running', 'no_rules', 'poor']:
+        print("🔧 Setting up enhanced user detection...")
+        setup_success = setup_audit_rules()
+        if setup_success:
+            print("✅ User detection system configured")
+        else:
+            print("⚠️  Limited user detection available - will use fallback methods")
 
     baseline = load_baseline()
     if baseline is None:
@@ -659,7 +818,7 @@ def main():
         try:
             ai_scorer = AIRiskScorer()
             ai_scorer.load_model()
-            print("🤖 AI Risk Scoring enabled")
+            print("🤖 AI Risk Scoring enabled with VirusTotal integration")
         except Exception as e:
             print(f"⚠️  AI Risk Scoring initialization failed: {e}")
             print("Continuing with traditional monitoring...")
@@ -671,7 +830,7 @@ def main():
     audio_last_deleted = set()
     audio_last_new = set()
 
-    print(f"🕵️  Starting enhanced audit-integrated scan every {SCAN_INTERVAL} seconds...")
+    print(f"🕵️  Starting enhanced user-tracking FIM with malware detection every {SCAN_INTERVAL} seconds...")
     print("(Press Ctrl+C to stop)\n")
     
     try:
@@ -689,19 +848,19 @@ def main():
             
             # Only process if there are changes
             if modified or deleted or new:
-                # NEW: Enhance changes with audit information
+                # NEW: Enhance changes with comprehensive user detection
                 enhanced_changes = enhance_changes_with_audit_info(modified, deleted, new, current_state)
                 
-                # Perform AI analysis if enabled
-                if ai_scorer:
-                    changes_dict = {'modified': modified, 'deleted': deleted, 'new': new}
-                    ai_results = analyze_with_ai(changes_dict, current_state, ai_scorer)
-                
-                # Perform VirusTotal analysis (only on new and modified files)
+                # Perform VirusTotal analysis first (needed for AI integration)
                 if modified or new:
                     vt_results = analyze_with_virustotal(modified, new, [], current_state)
+                
+                # Perform AI analysis if enabled (with enhanced audit info and VT results)
+                if ai_scorer:
+                    changes_dict = {'modified': modified, 'deleted': deleted, 'new': new}
+                    ai_results = analyze_with_ai(changes_dict, current_state, ai_scorer, enhanced_changes, vt_results)
             
-            # Print enhanced report with audit info
+            # Print enhanced report with comprehensive user information and malware detection
             print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results, vt_results)
             save_report(modified, deleted, new, ai_results, vt_results)
 
@@ -709,21 +868,34 @@ def main():
             current_deleted = set(deleted)
             current_new = set(new)
 
-            # Send enhanced alerts with audit information
+            # Send enhanced alerts with user audit information and malware detection
             if enhanced_changes and (ai_results or vt_results):
                 send_ai_enhanced_alert(modified, deleted, new, enhanced_changes, ai_results, vt_results, current_config)
             elif current_config.get("email_alert"):
-                # Fallback to traditional alerting
+                # Fallback to traditional alerting with basic user info
                 if(current_modified != last_modified or
                    current_deleted != last_deleted or
                    current_new != last_new):
-                    body=""
+                    
+                    body = "File Integrity Monitoring Alert with User Information\n\n"
                     if modified:
-                        body += "Modified files:\n" + "\n".join(f" -{f}" for f in modified) + "\n\n"
+                        body += "Modified files:\n"
+                        for f in modified:
+                            # Try to get user info for email
+                            user_info = get_current_user()
+                            body += f"  - {f} (by {user_info})\n"
+                        body += "\n"
                     if deleted:
-                        body += "Deleted files:\n" + "\n".join(f" -{f}" for f in deleted) + "\n\n"
+                        body += "Deleted files:\n"
+                        for f in deleted:
+                            user_info = get_current_user()
+                            body += f"  - {f} (by {user_info})\n"
+                        body += "\n"
                     if new:
-                        body += "New files:\n" + "\n".join(f" -{f}" for f in new) + "\n\n"
+                        body += "New files:\n"
+                        for f in new:
+                            user_info = get_current_user()
+                            body += f"  - {f} (by {user_info})\n"
 
                     send_email_alert(body.strip())
                     last_modified = current_modified

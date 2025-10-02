@@ -1,0 +1,37 @@
+{
+    "ransom.txt": {
+        "hash": "8693c606bf94c1786d7f8c61698e7c001ca9a24dbd08748dcf05360ac8f99631",
+        "size": 4,
+        "last_modified": "Tue Sep 30 07:47:37 2025",
+        "created_time": "Tue Sep 30 07:47:37 2025",
+        "permissions": "644"
+    },
+    "virus.txt": {
+        "hash": "f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2",
+        "size": 5,
+        "last_modified": "Tue Sep 30 07:46:29 2025",
+        "created_time": "Tue Sep 30 07:46:29 2025",
+        "permissions": "664"
+    },
+    "sample.html": {
+        "hash": "efd2c46f61d312c1fb880ffc0589759eff34403864f93d376c7c3b7d816528b5",
+        "size": 9,
+        "last_modified": "Tue Sep 30 08:04:49 2025",
+        "created_time": "Tue Sep 30 08:04:49 2025",
+        "permissions": "664"
+    },
+    "hacker.config": {
+        "hash": "3b6cb8ae51045d062a7c7de7cc488ad8785144cfbc0a7fc9546ed52429e0d97f",
+        "size": 3,
+        "last_modified": "Wed Oct  1 10:58:29 2025",
+        "created_time": "Wed Oct  1 10:58:29 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 10:58:29",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    }
+}
