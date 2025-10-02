@@ -8,6 +8,7 @@ from utils.email_alert import send_email_alert, play_beep
 from utils.audit_utils import get_file_audit_info, check_audit_system, setup_audit_rules
 from ai_modules.risk_scorer import AIRiskScorer
 from utils.virus_total import check_file_hash_vt, vt_integration, set_vt_api_key
+from utils.auto_prevention import auto_prevention
 import getpass
 
 config = load_config()
@@ -204,6 +205,86 @@ def enhance_changes_with_audit_info(modified, deleted, new, current_state):
     
     print(f"✅ Enhanced {len(enhanced_changes)} changes with user information")
     return enhanced_changes
+
+def process_malicious_files_auto_prevention(ai_results, vt_results):
+    """Process and automatically handle malicious files"""
+    if not ai_results and not vt_results:
+        return
+    
+    print("\n🛡️  Checking for malicious files requiring auto prevention...")
+    
+    malicious_files_processed = []
+    
+    # Check VirusTotal malicious files
+    if vt_results and vt_results.get('malicious_files'):
+        for malicious_file in vt_results['malicious_files']:
+            file_path = malicious_file.get('file_path')
+            if file_path:
+                full_path = os.path.join(MONITOR_PATH, file_path)
+                
+                print(f"🚨 Processing VirusTotal malicious file: {file_path}")
+                
+                # Find corresponding AI results
+                corresponding_ai = None
+                if ai_results:
+                    for category in ['high_risk_changes', 'medium_risk_changes', 'low_risk_changes']:
+                        for ai_change in ai_results.get(category, []):
+                            if ai_change.get('file_path') == file_path:
+                                corresponding_ai = ai_change
+                                break
+                        if corresponding_ai:
+                            break
+                
+                # Process with auto prevention
+                prevention_result = auto_prevention.process_malicious_file(
+                    full_path, malicious_file, corresponding_ai
+                )
+                
+                malicious_files_processed.append(prevention_result)
+    
+    # Check AI critical risk files
+    if ai_results:
+        for ai_change in ai_results.get('high_risk_changes', []):
+            file_path = ai_change.get('file_path')
+            risk_level = ai_change.get('risk_level')
+            
+            if risk_level == 'CRITICAL' and file_path not in [f['file_path'] for f in malicious_files_processed]:
+                full_path = os.path.join(MONITOR_PATH, file_path)
+                
+                print(f"🚨 Processing AI critical risk file: {file_path}")
+                
+                # Find corresponding VT results
+                corresponding_vt = None
+                if vt_results:
+                    for category in ['malicious_files', 'suspicious_files']:
+                        for vt_file in vt_results.get(category, []):
+                            if vt_file.get('file_path') == file_path:
+                                corresponding_vt = vt_file
+                                break
+                        if corresponding_vt:
+                            break
+                
+                # Process with auto prevention
+                prevention_result = auto_prevention.process_malicious_file(
+                    full_path, corresponding_vt, ai_change
+                )
+                
+                malicious_files_processed.append(prevention_result)
+    
+    # Report prevention actions
+    if malicious_files_processed:
+        print(f"\n🛡️  Auto Prevention Summary:")
+        for result in malicious_files_processed:
+            status = "✅ SUCCESS" if result['success'] else "❌ FAILED"
+            print(f"   {status}: {result['file_path']}")
+            for action in result['actions_taken']:
+                print(f"      - {action}")
+        
+        print(f"\n📊 Prevention Stats:")
+        stats = auto_prevention.get_prevention_stats()
+        print(f"   Total Prevented: {stats['total_prevented']}")
+        print(f"   Files Removed: {stats['files_removed']}")
+        print(f"   Files Quarantined: {stats['files_quarantined']}")
 
 def analyze_with_ai(changes_dict, current_data, ai_scorer, enhanced_changes=None, vt_results=None):
     """
@@ -810,6 +891,8 @@ def main():
                 if ai_scorer:
                     changes_dict = {'modified': modified, 'deleted': deleted, 'new': new}
                     ai_results = analyze_with_ai(changes_dict, current_state, ai_scorer, enhanced_changes, vt_results)
+
+                process_malicious_files_auto_prevention(ai_results, vt_results)
             
             print_report_with_audit(modified, deleted, new, enhanced_changes, ai_results, vt_results)
             save_report(modified, deleted, new, ai_results, vt_results)
