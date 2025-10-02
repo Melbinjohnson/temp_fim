@@ -1,0 +1,254 @@
+{
+    "sdhd.txt": {
+        "hash": "967f7b3a1f4a59fa7d277755ca9e1b1459128628b96758ac3060d34421df5e7d",
+        "size": 7,
+        "last_modified": "Thu Oct  2 11:01:58 2025",
+        "created_time": "Thu Oct  2 11:01:58 2025",
+        "permissions": "664",
+        "owner": "newuser",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-02 11:01:58",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "test.py": {
+        "hash": "de93b7761c4e00972d86db95688f05d6fc141cec37e6a6b5d150f98f81e7b5f4",
+        "size": 7,
+        "last_modified": "Wed Oct  1 10:31:07 2025",
+        "created_time": "Wed Oct  1 10:31:07 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 10:31:07",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "testuser.txt": {
+        "hash": "251b2f88db44d2bc306a5e90e95ac817d8ce54dd4998062cdf61e1c518abc5b3",
+        "size": 4,
+        "last_modified": "Wed Oct  1 11:49:56 2025",
+        "created_time": "Wed Oct  1 11:49:56 2025",
+        "permissions": "664",
+        "owner": "newuser",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 11:49:56",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "ransom.sh": {
+        "hash": "cdecbd1610c10249ac1c5c85fb5e75b66a087a3a513371047b5e982ccce9f96b",
+        "size": 6,
+        "last_modified": "Thu Oct  2 11:06:10 2025",
+        "created_time": "Thu Oct  2 11:06:10 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-02 11:06:10",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "virus.sh": {
+        "hash": "131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267",
+        "size": 69,
+        "last_modified": "Wed Oct  1 10:54:42 2025",
+        "created_time": "Wed Oct  1 10:54:42 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 10:54:42",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "virus.txt": {
+        "hash": "131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267",
+        "size": 69,
+        "last_modified": "Wed Oct  1 10:53:19 2025",
+        "created_time": "Wed Oct  1 10:53:19 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 10:53:19",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "usertest2.txt": {
+        "hash": "3b6cb8ae51045d062a7c7de7cc488ad8785144cfbc0a7fc9546ed52429e0d97f",
+        "size": 3,
+        "last_modified": "Wed Oct  1 12:09:10 2025",
+        "created_time": "Wed Oct  1 12:09:10 2025",
+        "permissions": "664",
+        "owner": "newuser",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 12:09:10",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "samplt.sh": {
+        "hash": "102f9ff8964afc43dbfd34802992eee3ef6538772f6a34960605d28cea3d29fa",
+        "size": 10,
+        "last_modified": "Thu Oct  2 11:00:59 2025",
+        "created_time": "Thu Oct  2 11:00:59 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-02 11:00:59",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "initialize.py": {
+        "hash": "a8a2cb85c0f92ea3777cd0fe3daa28c630c593e9f7831a61260661a8a5b49af6",
+        "size": 4,
+        "last_modified": "Wed Oct  1 10:45:07 2025",
+        "created_time": "Wed Oct  1 10:45:07 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 10:45:07",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "testuser.py": {
+        "hash": "b1a9ed3af8847b681108243a81c6b36973d4808f8c7598d5f455520a0d4143af",
+        "size": 6,
+        "last_modified": "Thu Oct  2 11:06:56 2025",
+        "created_time": "Thu Oct  2 11:06:56 2025",
+        "permissions": "664",
+        "owner": "newuser",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-02 11:06:56",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "user.txt": {
+        "hash": "720daff2aefd2b3457cbd597509b0fa399e258444302c2851f8d3cdd8ad781eb",
+        "size": 3,
+        "last_modified": "Wed Oct  1 11:43:51 2025",
+        "created_time": "Wed Oct  1 11:43:51 2025",
+        "permissions": "644",
+        "owner": "root",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 11:43:51",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "hacker.config": {
+        "hash": "3b6cb8ae51045d062a7c7de7cc488ad8785144cfbc0a7fc9546ed52429e0d97f",
+        "size": 3,
+        "last_modified": "Wed Oct  1 10:58:29 2025",
+        "created_time": "Wed Oct  1 10:58:29 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 10:58:29",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "usertest3.txt": {
+        "hash": "586094ef2e87223e9861991faf7bdba6bec4f60a762743f297e139e4a5eb1d23",
+        "size": 4,
+        "last_modified": "Wed Oct  1 12:10:12 2025",
+        "created_time": "Wed Oct  1 12:10:12 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 12:10:12",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "test6.txt": {
+        "hash": "131f95c51cc819465fa1797f6ccacf9d494aaaff46fa3eac73ae63ffbdfd8267",
+        "size": 69,
+        "last_modified": "Wed Oct  1 10:10:52 2025",
+        "created_time": "Wed Oct  1 10:10:52 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 10:10:52",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "sample.html": {
+        "hash": "2d4f642ce517d00344066942d00d02f2edfaa484cd8e77845ea02de8af929ee3",
+        "size": 13,
+        "last_modified": "Wed Oct  1 10:25:06 2025",
+        "created_time": "Wed Oct  1 10:25:06 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-01 10:25:06",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "testconf.txt": {
+        "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size": 0,
+        "last_modified": "Thu Oct  2 11:25:46 2025",
+        "created_time": "Thu Oct  2 11:25:46 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-02 11:25:46",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "hacker.sh": {
+        "hash": "f7f39f98aa773354a49058e51912781b8669409c28551fabb951c6282876e264",
+        "size": 7,
+        "last_modified": "Tue Sep 30 08:14:01 2025",
+        "created_time": "Tue Sep 30 08:14:01 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-09-30 08:14:01",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    },
+    "ss.txt": {
+        "hash": "83aaf39cf48fe756334f6d6bc31637262cd82abe7d4a47bfd26bd6e678558373",
+        "size": 4,
+        "last_modified": "Thu Oct  2 11:39:21 2025",
+        "created_time": "Thu Oct  2 11:39:21 2025",
+        "permissions": "664",
+        "owner": "kali",
+        "audit": {
+            "last_modified_by": "kali",
+            "modification_time": "2025-10-02 11:39:21",
+            "process": "Unknown",
+            "command": "Unknown"
+        }
+    }
+}
